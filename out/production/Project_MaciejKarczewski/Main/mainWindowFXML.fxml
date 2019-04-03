@@ -186,8 +186,8 @@
                   <TableView GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                      <columns>
                         <TableColumn maxWidth="30.0" prefWidth="22.0" text="LP" />
-                        <TableColumn maxWidth="47.0" prefWidth="47.0" text="Id" />
-                        <TableColumn prefWidth="132.0" text="Nazwa" />
+                        <TableColumn maxWidth="68.00001525878906" prefWidth="68.00001525878906" text="Kod" />
+                        <TableColumn prefWidth="111.99998474121094" text="Nazwa" />
                         <TableColumn prefWidth="93.0" text="Data Zakupu" />
                         <TableColumn prefWidth="106.0" text="Data Utylizacji" />
                         <TableColumn prefWidth="108.0" text="Cena Zakupu" />

@@ -7,23 +7,23 @@ public class narzedziaData {
     public static narzedziaData containerNarzedzia;
 
     private IntegerProperty Lp;
-    private final IntegerProperty Id;
+    private final StringProperty Kod;
     private final StringProperty Nazwa;
     private final StringProperty DataZak;
     private final StringProperty DataUtyl;
     private final DoubleProperty Cena;
 
-    public narzedziaData(int id, String nazwa, String dataZak, double cena) {
-        Id = new SimpleIntegerProperty(id);
+    public narzedziaData(String kod, String nazwa, String dataZak, double cena) {
+        Kod = new SimpleStringProperty(kod);
         Nazwa = new SimpleStringProperty(nazwa);
         DataZak = new SimpleStringProperty(dataZak);
-        DataUtyl = new SimpleStringProperty("");
+        DataUtyl = new SimpleStringProperty(null); // can this accept null?
         Cena = new SimpleDoubleProperty(cena);
 
     }
 
-    public narzedziaData(int id, String nazwa, String dataZak, String dataUtyl, double cena) {
-        Id = new SimpleIntegerProperty(id);
+    public narzedziaData(String kod, String nazwa, String dataZak, String dataUtyl, double cena) {
+        Kod = new SimpleStringProperty(kod);
         Nazwa = new SimpleStringProperty(nazwa);
         DataZak = new SimpleStringProperty(dataZak);
         DataUtyl = new SimpleStringProperty(dataUtyl);
@@ -33,7 +33,7 @@ public class narzedziaData {
     @Override
     public String toString(){
         String output = "narzedziaData: \n" +
-                "id: " + getId() +
+                "kod: " + getKod() +
                 "\nNazwa: " + getNazwa() +
                 "\nData Zakupu: " + getDataZak() +
                 "\nData Utylizacji: " +getDataUtyl() +
@@ -54,16 +54,16 @@ public class narzedziaData {
         this.Lp.set(lp);
     }
 
-    public int getId() {
-        return Id.get();
+    public String getKod() {
+        return Kod.get();
     }
 
-    public IntegerProperty idProperty() {
-        return Id;
+    public StringProperty kodProperty() {
+        return Kod;
     }
 
-    public void setId(int id) {
-        this.Id.set(id);
+    public void setKod(String kod) {
+        this.Kod.set(kod);
     }
 
     public String getNazwa() {

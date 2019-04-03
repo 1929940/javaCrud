@@ -26,8 +26,6 @@ public class DBconnection {
 
     public void initilizeDB(){
 
-        // Pracownik
-
         //Connect
 
         try {
@@ -38,25 +36,103 @@ public class DBconnection {
             e.printStackTrace();
         }
 
-        //Create Statement
 
+
+        // Pracownik
+
+            //Create Statement
         String createPracownik="CREATE TABLE IF NOT EXISTS Pracownik(" +
-                "    id_pracownik INTEGER      PRIMARY KEY AUTOINCREMENT," +
-                "    nazwisko     VARCHAR (20) NOT NULL," +
-                "    imie         VARCHAR (20) NOT NULL," +
-                "    narodowosc   VARCHAR (20) NOT NULL," +
-                "    stanowisko   VARCHAR (20) NOT NULL," +
-                "    data_zatr    DATE         NOT NULL," +
-                "    data_wyp     DATE)";
+                "id_pracownik INTEGER      PRIMARY KEY AUTOINCREMENT," +
+                "nazwisko     VARCHAR (20) NOT NULL," +
+                "imie         VARCHAR (20) NOT NULL," +
+                "narodowosc   VARCHAR (20) NOT NULL," +
+                "stanowisko   VARCHAR (20) NOT NULL," +
+                "data_zatr    DATE         NOT NULL," +
+                "data_wyp     DATE)";
 
-        //Execute
-
+            //Execute
         try {
             stmt.execute(createPracownik);
 
         } catch (SQLException e) {
-            System.err.println("Blad przy tworzeniu tabeli");
+            System.err.println("Blad przy tworzeniu tabeli: Pracownik");
             e.printStackTrace();
+        }
+
+
+
+        // Wynagrodzenie
+
+            // Create Statement
+        String createWynagrodzenie="CREATE TABLE IF NOT EXISTS Wynagrodzenia ("+
+                "id_umowa         INTEGER        PRIMARY KEY AUTOINCREMENT,"+
+                "id_pracownik     INTEGER        NOT NULL REFERENCES Pracownik (id_pracownik) ON DELETE CASCADE ON UPDATE CASCADE,"+
+                "umowa            VARCHAR (11)   UNIQUE NOT NULL,"+
+                "data_start       DATE           NOT NULL,"+
+                "data_koniec      DATE           NOT NULL,"+
+                "stawka_godzinowa DOUBLE (3, 2)  NOT NULL CHECK (stawka_godzinowa > 0),"+
+                "godziny          DOUBLE (3, 2)  NOT NULL CHECK (godziny > 0),"+
+                "wyplata          DECIMAL (5, 2) NOT NULL,"+
+                "przedmiot_umowy  VARCHAR (100)  NOT NULL DEFAULT ('Ma pracowac'));";
+
+            // Execute
+        try {
+            stmt.execute(createWynagrodzenie);
+
+        } catch (SQLException e) {
+            System.err.println("Blad przy tworzeniu tabeli: Wynagrodzenie");
+            e.printStackTrace();
+        }
+
+
+
+        // Narzedzia
+
+            // Create Statement
+        String createNarzedzia="CREATE TABLE IF NOT EXISTS Narzedzia ("+
+                "id_narzedzia    INTEGER        PRIMARY KEY AUTOINCREMENT,"+
+                "kod             VARCHAR (10)   NOT NULL UNIQUE,"+
+                "data_zakupu     DATE           NOT NULL,"+
+                "data_utylizacji DATE,"+
+                "cena            DECIMAL (5, 2) NOT NULL CHECK (cena > 0));";
+
+            // Execute
+        try {
+            stmt.execute(createNarzedzia);
+
+        } catch (SQLException e) {
+            System.err.println("Blad przy tworzeniu tabeli: Narzedzia");
+            e.printStackTrace();
+        }
+
+
+
+        // Wypozyczenia
+
+            //Prepapre Statement
+        String createWypozyczenia="CREATE TABLE IF NOT EXISTS Wypozyczenia("+
+                "id_wypozyczenia INTEGER PRIMARY KEY AUTOINCREMENT,"+
+                "id_narzedzia    INTEGER REFERENCES Narzedzia (id_narzedzia) ON DELETE CASCADE ON UPDATE CASCADE NOT NULL,"+
+                "id_pracownik    INTEGER REFERENCES Pracownik (id_pracownik) ON DELETE CASCADE ON UPDATE CASCADE NOT NULL,"+
+                "data_wyp        DATE    NOT NULL,"+
+                "data_zwrot      DATE    NOT NULL);";
+
+            //Execute
+        try {
+            stmt.execute(createWypozyczenia);
+
+        } catch (SQLException e) {
+            System.err.println("Blad przy tworzeniu tabeli: Wypozyczenia");
+            e.printStackTrace();
+        }
+
+        //Closing Connection
+
+        try{
+            conn.close();
+        }
+        catch(SQLException e){
+            System.err.println("Blad przy zamykaniu polaczenia");
         }
 
     };
@@ -90,7 +166,7 @@ public class DBconnection {
 
             // my own
         } catch (SQLException e) {
-            System.err.println("Blad przy dodawaniu osoby");
+            System.err.println("Blad przy seedowaniu tabeli");
             e.printStackTrace();
         }
 
@@ -130,7 +206,7 @@ public class DBconnection {
 
 
         } catch (SQLException e) {
-            System.err.println("Blad przy wykonywaniu SELECT");
+            System.err.println("Blad przy sprawdzaniu czy trzeba zaseedoac tabele pracownik");
             e.printStackTrace();
         }
         try{
@@ -171,9 +247,8 @@ public class DBconnection {
             int id;
             String nazwisko, imie, narodowosc, stanowisko, data_zatr, data_wyp;
 
-
             while(result.next()) {
-                id = result.getInt("id_pracownik");
+                //id = result.getInt("id_pracownik"); Do I need this?
                 nazwisko = result.getString("nazwisko");
                 imie = result.getString("imie");
                 narodowosc = result.getString("narodowosc");
@@ -187,7 +262,7 @@ public class DBconnection {
                 output.add(pd);
             }
         } catch (SQLException e) {
-            System.err.println("Blad przy wykonywaniu SELECT");
+            System.err.println("Blad przy wykonywaniu ladowaniu pracownikow");
             e.printStackTrace();
         }
         try{
@@ -196,10 +271,7 @@ public class DBconnection {
         catch(SQLException e){
             e.printStackTrace();
         }
-
         return output;
-
-
     }
 
     public void dodajPracownikaDB(pracownikData pd){
@@ -223,7 +295,7 @@ public class DBconnection {
 
             // my own
         } catch (SQLException e) {
-            System.err.println("Blad przy dodawaniu osoby");
+            System.err.println("Blad przy dodawaniu pracownika");
             e.printStackTrace();
         }
 
@@ -283,7 +355,6 @@ public class DBconnection {
         return output;
     }
 
-    // param id_pracownik
     public void usunPracownikaDB(int id_prac){
 
         String sql="DELETE FROM Pracownik WHERE id_pracownik = ?";
@@ -312,7 +383,6 @@ public class DBconnection {
         }
     }
 
-    // param id_pracownik
     public void modyfikujPracownikaDB(pracownikData pd, pracownikData pdOld){
 
         int id_prac = znajdzPracownika(pdOld);
@@ -339,7 +409,6 @@ public class DBconnection {
             stmtAdd.setString(6, pd.getDataWyp()); // This can be null right
             stmtAdd.setInt(7,id_prac);
 
-            System.out.println(sql);
 
             stmtAdd.execute();
 

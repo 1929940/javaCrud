@@ -25,7 +25,7 @@ public class pracownikData {
         Narodowosc = new SimpleStringProperty(narodowosc);
         Stanowisko = new SimpleStringProperty(stanowisko);
         DataZatr = new SimpleStringProperty(dataZatr);
-        DataWyp = new SimpleStringProperty("");
+        DataWyp = new SimpleStringProperty(null);
     }
     public pracownikData(String nazwisko, String imie, String narodowosc, String stanowisko, String dataZatr, String dataWyp){
 

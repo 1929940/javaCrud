@@ -12,7 +12,6 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-import static DataModels.dataLists.PracownicyDataList;
 
 public class modyfikujPracownikaController implements Initializable {
 
@@ -58,20 +57,15 @@ public class modyfikujPracownikaController implements Initializable {
             tmp = new pracownikData(nazwisko,imie,narodowosc,stanowisko,dataZatr,dataWyp);
         }
 
-        new DBconnection().modyfikujPracownikaDB(tmp, container);
-        System.out.println(tmp);
-
         //Check if any changes where made
 
         //Does not work - Will modify an unmodified object
-        if(container.equals(pracownikData.containerPracownik)){
-            System.out.println("ten sam!!!!!");
+        if(tmp == container){
+            System.out.println("Nie wprowadzono zadnej modyfikacji");
             return;
         }
 
-
-        //remove container
-        PracownicyDataList.remove(container);
+        new DBconnection().modyfikujPracownikaDB(tmp, container);
 
         //reset container [do i have too?]
         container = null;
@@ -79,7 +73,6 @@ public class modyfikujPracownikaController implements Initializable {
         //close window
         anuluj();
 
-        //refresh view
 
     }
 
