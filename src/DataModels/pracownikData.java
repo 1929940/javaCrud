@@ -51,6 +51,8 @@ public class pracownikData {
         return output;
     }
 
+
+
     // Why we have 3?
 
     public Integer getLp() {

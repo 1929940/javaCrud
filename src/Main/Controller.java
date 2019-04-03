@@ -3,6 +3,7 @@ package Main;
 import DataModels.pracownikData;
 import Main.Windows.dodajPracownika.dodajPracownikaController;
 import Main.Windows.modyfikujPracownika.modyfikujPracownikaController;
+import dbUtilities.DBconnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,14 +30,6 @@ public class Controller implements Initializable {
 
     // TAB: Pracownicy
 
-    @FXML
-    private Button pracownicy_dodaj;
-
-    @FXML
-    private Button pracownicy_modyfikuj;
-
-    @FXML
-    private Button pracownicy_usun;
 
     //Table and Columns
 
@@ -111,19 +104,7 @@ public class Controller implements Initializable {
         tabPrac_dataZatr.setCellValueFactory(new PropertyValueFactory("DataZatr"));
         tabPrac_dataWyp.setCellValueFactory(new PropertyValueFactory("DataWyp"));
 
-
-        if (pracownikData.containerPracownik != null){
-            PracownicyDataList.add(pracownikData.containerPracownik);
-            pracownikData.containerPracownik = null;
-        }
-
-        for (int i = 0; i < PracownicyDataList.size(); i++ ){
-            PracownicyDataList.get(i).setLp(i+1);
-        }
-
-
-        Table_Pracownik.setItems(PracownicyDataList);
-
+        Table_Pracownik.setItems(new DBconnection().getPracownicyDB());
     }
 
     public void pracownicy_modyfikuj_click(ActionEvent event){
@@ -210,7 +191,11 @@ public class Controller implements Initializable {
         alert.showAndWait();
 
         if (alert.getResult() == ButtonType.YES) {
-            PracownicyDataList.remove(selectedData.get(0));
+/*            PracownicyDataList.remove(selectedData.get(0));
+            pracownicy_loadData();*/
+            int tmp = new DBconnection().znajdzPracownika(selectedData.get(0));
+            new DBconnection().usunPracownikaDB(tmp);
+
             pracownicy_loadData();
         }
 
@@ -230,6 +215,19 @@ public class Controller implements Initializable {
     // Perhaps unnessesary
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        // Load and Seed PracownicyTab
+        DBconnection dBconnection = new DBconnection();
+
+        dBconnection.initilizeDB();
+
+        if(dBconnection.IsSeedPracownik()){
+            dBconnection.seedPracownik();
+        }
+
+
+        pracownicy_loadData();
+
 
     }
 }

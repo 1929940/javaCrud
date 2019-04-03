@@ -1,5 +1,6 @@
 package Main;
 
+import dbUtilities.DBconnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,6 +22,7 @@ public class Main extends Application {
         primaryStage.setMinHeight(300);
         primaryStage.setMinWidth(500);
         primaryStage.show();
+
 
 
     }

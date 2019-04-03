@@ -1,6 +1,7 @@
 package Main.Windows.modyfikujPracownika;
 
 import DataModels.pracownikData;
+import dbUtilities.DBconnection;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -47,17 +48,27 @@ public class modyfikujPracownikaController implements Initializable {
         }
         String dataZatr = DataZatr.getValue().toString();
 
+        pracownikData tmp;
 
         if (DataWyp.getValue() == null){
-            System.out.println("No wyp date");
-            pracownikData.containerPracownik = new pracownikData(nazwisko,imie,narodowosc,stanowisko,dataZatr);
+            tmp = new pracownikData(nazwisko,imie,narodowosc,stanowisko,dataZatr);
         }
         else{
             String dataWyp = DataWyp.getValue().toString();
-            System.out.println("with wyp date");
-            pracownikData.containerPracownik = new pracownikData(nazwisko,imie,narodowosc,stanowisko,dataZatr,dataWyp);
+            tmp = new pracownikData(nazwisko,imie,narodowosc,stanowisko,dataZatr,dataWyp);
         }
-        System.out.println(pracownikData.containerPracownik);
+
+        new DBconnection().modyfikujPracownikaDB(tmp, container);
+        System.out.println(tmp);
+
+        //Check if any changes where made
+
+        //Does not work - Will modify an unmodified object
+        if(container.equals(pracownikData.containerPracownik)){
+            System.out.println("ten sam!!!!!");
+            return;
+        }
+
 
         //remove container
         PracownicyDataList.remove(container);

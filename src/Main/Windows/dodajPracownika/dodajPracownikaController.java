@@ -1,6 +1,7 @@
 package Main.Windows.dodajPracownika;
 
 import DataModels.pracownikData;
+import dbUtilities.DBconnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -37,7 +38,6 @@ public class dodajPracownikaController implements Initializable {
                 imie.isEmpty() ||
                 narod.isEmpty() ||
                 stan.isEmpty()
-
         ){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Błąd: Nie wszystkie pola wypelnione");
@@ -49,7 +49,7 @@ public class dodajPracownikaController implements Initializable {
             return;
         }
 
-        pracownikData.containerPracownik = new pracownikData(nazw,imie,narod,stan,date);
+        new DBconnection().dodajPracownikaDB(new pracownikData(nazw,imie,narod,stan,date, null));
 
         anuluj(event);
     }
