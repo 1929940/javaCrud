@@ -4,7 +4,6 @@ import DataModels.pracownikData;
 import Main.Windows.dodajPracownika.dodajPracownikaController;
 import Main.Windows.modyfikujPracownika.modyfikujPracownikaController;
 import dbUtilities.DBconnection;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -82,7 +81,7 @@ public class Controller implements Initializable {
             popUp.setOnCloseRequest(new EventHandler<WindowEvent>(){
                 @Override
                 public void handle(WindowEvent paramT){
-                    pracownicy_loadData();
+                    pracownicy_zaladuj();
                 }
             });
         }
@@ -93,7 +92,7 @@ public class Controller implements Initializable {
 
     }
 
-    public void pracownicy_loadData(){
+    public void pracownicy_zaladuj(){
 
         tabPrac_lp.setCellValueFactory(new PropertyValueFactory("Lp"));
         tabPrac_nazwisko.setCellValueFactory(new PropertyValueFactory("Nazwisko"));
@@ -103,7 +102,9 @@ public class Controller implements Initializable {
         tabPrac_dataZatr.setCellValueFactory(new PropertyValueFactory("DataZatr"));
         tabPrac_dataWyp.setCellValueFactory(new PropertyValueFactory("DataWyp"));
 
-        Table_Pracownik.setItems(new DBconnection().getPracownicyDB());
+        DBconnection dBconnection = new DBconnection();
+        Table_Pracownik.setItems(dBconnection.getPracownicyDB());
+        dBconnection.closeConnection();
     }
 
     public void pracownicy_modyfikuj_click(ActionEvent event){
@@ -156,7 +157,7 @@ public class Controller implements Initializable {
             popUp.setOnCloseRequest(new EventHandler<WindowEvent>(){
                 @Override
                 public void handle(WindowEvent paramT){
-                    pracownicy_loadData();
+                    pracownicy_zaladuj();
                 }
             });
         }
@@ -190,23 +191,24 @@ public class Controller implements Initializable {
         alert.showAndWait();
 
         if (alert.getResult() == ButtonType.YES) {
-/*            PracownicyDataList.remove(selectedData.get(0));
-            pracownicy_loadData();*/
-            int tmp = new DBconnection().znajdzPracownika(selectedData.get(0));
-            new DBconnection().usunPracownikaDB(tmp);
 
-            pracownicy_loadData();
+            DBconnection dBconnection = new DBconnection();
+            int tmp = dBconnection.znajdzPracownikaDB(selectedData.get(0));
+            dBconnection.usunPracownikaDB(tmp);
+            dBconnection.closeConnection();
+
+            pracownicy_zaladuj();
         }
 
         //Counter Issues [LP]
     }
 
 
-    // TAB:
+    // TAB: Wynagrodzenia
 
-    // TAB:
+    // TAB: Spis Narzedzi
 
-    // TAB:
+    // TAB: Wypozyczenia
 
 
     // Other
@@ -223,10 +225,17 @@ public class Controller implements Initializable {
         if(dBconnection.IsSeedPracownik()){
             dBconnection.seedPracownik();
         }
+        if(dBconnection.IsSeedNarzedzia()){
+            dBconnection.seedNarzedzia();
+        }
+        if(dBconnection.IsSeedWynagrodzenia()){
+            dBconnection.SeedWynagrodzenia();
+        }
+        if(dBconnection.IsSeedWypozyczenia()){
+            dBconnection.SeedWypozyczenia();
+        }
+        dBconnection.closeConnection();
 
-
-        pracownicy_loadData();
-
-
+        pracownicy_zaladuj();
     }
 }

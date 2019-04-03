@@ -2,6 +2,8 @@ package DataModels;
 
 import javafx.beans.property.*;
 
+import java.math.BigDecimal;
+
 public class narzedziaData {
 
     public static narzedziaData containerNarzedzia;
@@ -13,21 +15,21 @@ public class narzedziaData {
     private final StringProperty DataUtyl;
     private final DoubleProperty Cena;
 
-    public narzedziaData(String kod, String nazwa, String dataZak, double cena) {
+    public narzedziaData(String kod, String nazwa, String dataZak, BigDecimal cena) {
         Kod = new SimpleStringProperty(kod);
         Nazwa = new SimpleStringProperty(nazwa);
         DataZak = new SimpleStringProperty(dataZak);
         DataUtyl = new SimpleStringProperty(null); // can this accept null?
-        Cena = new SimpleDoubleProperty(cena);
+        Cena = new SimpleDoubleProperty(cena.doubleValue());
 
     }
 
-    public narzedziaData(String kod, String nazwa, String dataZak, String dataUtyl, double cena) {
+    public narzedziaData(String kod, String nazwa, String dataZak, String dataUtyl, BigDecimal cena) {
         Kod = new SimpleStringProperty(kod);
         Nazwa = new SimpleStringProperty(nazwa);
         DataZak = new SimpleStringProperty(dataZak);
         DataUtyl = new SimpleStringProperty(dataUtyl);
-        Cena = new SimpleDoubleProperty(cena);
+        Cena = new SimpleDoubleProperty(cena.doubleValue());
     }
 
     @Override

@@ -48,8 +48,9 @@ public class dodajPracownikaController implements Initializable {
 
             return;
         }
-
-        new DBconnection().dodajPracownikaDB(new pracownikData(nazw,imie,narod,stan,date, null));
+        DBconnection dBconnection = new DBconnection();
+        dBconnection.dodajPracownikaDB(new pracownikData(nazw,imie,narod,stan,date, null));
+        dBconnection.closeConnection();
 
         anuluj(event);
     }

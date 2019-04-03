@@ -65,7 +65,9 @@ public class modyfikujPracownikaController implements Initializable {
             return;
         }
 
-        new DBconnection().modyfikujPracownikaDB(tmp, container);
+        DBconnection dBconnection = new DBconnection();
+        dBconnection.modyfikujPracownikaDB(tmp, container);
+        dBconnection.closeConnection();
 
         //reset container [do i have too?]
         container = null;

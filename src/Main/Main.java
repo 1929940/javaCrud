@@ -14,17 +14,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("mainWindowFXML.fxml"));
 
-        //primaryStage.initModality(Modality.APPLICATION_MODAL);
-        //This turns a window into a messagebox-like window
-
         primaryStage.setTitle("Shipyard Employee & Equipment Management Tool");
         primaryStage.setScene(new Scene(root, 1000, 600));
         primaryStage.setMinHeight(300);
         primaryStage.setMinWidth(500);
         primaryStage.show();
-
-
-
     }
 
 

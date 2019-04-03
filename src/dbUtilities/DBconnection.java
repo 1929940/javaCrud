@@ -1,9 +1,11 @@
 package dbUtilities;
 
+import DataModels.narzedziaData;
 import DataModels.pracownikData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.math.BigDecimal;
 import java.sql.*;
 ;
 
@@ -22,12 +24,6 @@ public class DBconnection {
             System.err.println("Brak sterownika JDBC");
             e.printStackTrace();
         }
-    }
-
-    public void initilizeDB(){
-
-        //Connect
-
         try {
             conn = DriverManager.getConnection(DB_URL);
             stmt = conn.createStatement();
@@ -35,8 +31,9 @@ public class DBconnection {
             System.err.println("Problem z otwarciem połączenia");
             e.printStackTrace();
         }
+    }
 
-
+    public void initilizeDB(){
 
         // Pracownik
 
@@ -91,7 +88,8 @@ public class DBconnection {
             // Create Statement
         String createNarzedzia="CREATE TABLE IF NOT EXISTS Narzedzia ("+
                 "id_narzedzia    INTEGER        PRIMARY KEY AUTOINCREMENT,"+
-                "kod             VARCHAR (10)   NOT NULL UNIQUE,"+
+                "nazwa           VARCHAR (25)   NOT NULL,"+
+                "kod             VARCHAR (10)   NOT NULL,"+
                 "data_zakupu     DATE           NOT NULL,"+
                 "data_utylizacji DATE,"+
                 "cena            DECIMAL (5, 2) NOT NULL CHECK (cena > 0));";
@@ -115,7 +113,7 @@ public class DBconnection {
                 "id_narzedzia    INTEGER REFERENCES Narzedzia (id_narzedzia) ON DELETE CASCADE ON UPDATE CASCADE NOT NULL,"+
                 "id_pracownik    INTEGER REFERENCES Pracownik (id_pracownik) ON DELETE CASCADE ON UPDATE CASCADE NOT NULL,"+
                 "data_wyp        DATE    NOT NULL,"+
-                "data_zwrot      DATE    NOT NULL);";
+                "data_zwrot      DATE    );";
 
             //Execute
         try {
@@ -125,32 +123,9 @@ public class DBconnection {
             System.err.println("Blad przy tworzeniu tabeli: Wypozyczenia");
             e.printStackTrace();
         }
-
-        //Closing Connection
-
-        try{
-            conn.close();
-        }
-        catch(SQLException e){
-            System.err.println("Blad przy zamykaniu polaczenia");
-        }
-
     };
 
     public void seedPracownik(){
-
-        //Connect
-
-        try {
-            conn = DriverManager.getConnection(DB_URL);
-            stmt = conn.createStatement();
-        } catch (SQLException e) {
-            System.err.println("Problem z otwarciem połączenia");
-            e.printStackTrace();
-        }
-
-
-        //Populate with test data
 
         String sql;
         try {
@@ -163,37 +138,17 @@ public class DBconnection {
             sql="INSERT INTO Pracownik(nazwisko, imie, narodowosc, stanowisko, data_zatr) " +
                     "VALUES ('Khvalin','Oleksandr','Ukraina','Spawacz','2014-12-01');";
             stmt.execute(sql);
-
             // my own
         } catch (SQLException e) {
-            System.err.println("Blad przy seedowaniu tabeli");
+            System.err.println("Blad przy seedowaniu tabeli Pracownik");
             e.printStackTrace();
         }
-
-        try{
-            conn.close();
-        }
-        catch(SQLException e){
-            e.printStackTrace();
-        }
-
-
     }
 
     public boolean IsSeedPracownik(){
 
         String sql = "SELECT COUNT(id_pracownik) AS Count FROM Pracownik";
         int tmp = 1;
-
-        //connect
-
-        try {
-            conn = DriverManager.getConnection(DB_URL);
-            stmt = conn.createStatement();
-        } catch (SQLException e) {
-            System.err.println("Problem z otwarciem połączenia");
-            e.printStackTrace();
-        }
 
         //execute query
 
@@ -203,16 +158,8 @@ public class DBconnection {
             while(result.next()) {
                 tmp = result.getInt("Count");}
 
-
-
         } catch (SQLException e) {
-            System.err.println("Blad przy sprawdzaniu czy trzeba zaseedoac tabele pracownik");
-            e.printStackTrace();
-        }
-        try{
-            conn.close();
-        }
-        catch(SQLException e){
+            System.err.println("Blad przy sprawdzaniu czy trzeba zaseedowac tabele pracownik");
             e.printStackTrace();
         }
 
@@ -220,9 +167,183 @@ public class DBconnection {
             return false;
         else
             return true;
-
-
     }
+
+    public void seedNarzedzia(){
+
+        String sql;
+        try {
+            sql="INSERT INTO Narzedzia(nazwa, kod, data_zakupu, cena) " +
+                    "VALUES ('Młotek Spawalniczy','CR001/12','2014-01-01',19.99);";
+            stmt.execute(sql);
+            sql="INSERT INTO Narzedzia(nazwa, kod, data_zakupu, cena) " +
+                    "VALUES ('Młotek Spawalniczy','CR002/12','2014-01-01',19.99);";
+            stmt.execute(sql);
+            sql="INSERT INTO Narzedzia(nazwa, kod, data_zakupu,data_utylizacji, cena) " +
+                    "VALUES ('Szlifierka HEXO','CR001/10','2014-01-01','2015-03-07',1300.99);";
+            stmt.execute(sql);
+            sql="INSERT INTO Narzedzia(nazwa, kod, data_zakupu, cena) " +
+                    "VALUES ('Pół Automat Spawalniczy','CR001/03','2014-01-01',7999.99);";
+            stmt.execute(sql);
+            sql="INSERT INTO Narzedzia(nazwa, kod, data_zakupu, cena) " +
+                    "VALUES ('Pół Automat Spawalniczy','CR002/03','2014-01-01',7999.99);";
+            stmt.execute(sql);
+            sql="INSERT INTO Narzedzia(nazwa, kod, data_zakupu, cena) " +
+                    "VALUES ('Pół Automat Spawalniczy','CR003/03','2014-01-01',7999.99);";
+            stmt.execute(sql);
+            sql="INSERT INTO Narzedzia(nazwa, kod, data_zakupu, cena) " +
+                    "VALUES ('Podajnik Drutu','CR001/08','2014-01-01',4999.99);";
+            stmt.execute(sql);
+
+
+            // my own
+        } catch (SQLException e) {
+            System.err.println("Blad przy seedowaniu tabeli Narzedzia");
+            e.printStackTrace();
+        }
+    } // Untested
+
+    public boolean IsSeedNarzedzia(){
+        String sql = "SELECT COUNT(id_narzedzia) AS Count FROM Narzedzia";
+        int tmp = 1;
+
+        //execute query
+
+        try {
+            ResultSet result = stmt.executeQuery(sql);
+
+            while(result.next()) {
+                tmp = result.getInt("Count");}
+
+        } catch (SQLException e) {
+            System.err.println("Blad przy sprawdzaniu czy trzeba zaseedowac tabele narzedzia");
+            e.printStackTrace();
+        }
+
+        if (tmp > 0)
+            return false;
+        else
+            return true;
+    } // Untested
+
+    public void SeedWynagrodzenia(){
+
+        String sql;
+        try {
+            sql="INSERT INTO Wynagrodzenia(id_pracownik, umowa, data_start, data_koniec, stawka_godzinowa, godziny, wyplata, przedmiot_umowy)"+
+                    "VALUES(1, '2014/11/01', '2014-11-01','2014-11-30',15,200,3000,'Koordynacja prac spawalniczych na jednostce NB201');";
+            stmt.execute(sql);
+            sql="INSERT INTO Wynagrodzenia(id_pracownik, umowa, data_start, data_koniec, stawka_godzinowa, godziny, wyplata, przedmiot_umowy)"+
+                    "VALUES(1, '2014/12/01', '2014-12-02','2014-12-27',16,200,3200,'Koordynacja prac monterskich na jednostce NB201');";
+            stmt.execute(sql);
+            sql="INSERT INTO Wynagrodzenia(id_pracownik, umowa, data_start, data_koniec, stawka_godzinowa, godziny, wyplata, przedmiot_umowy)"+
+                    "VALUES(2, '2014/12/02', '2014-12-02','2014-12-27',25,200,5000,'Prace spawalnicze na jednostce NB201');";
+            stmt.execute(sql);
+            sql="INSERT INTO Wynagrodzenia(id_pracownik, umowa, data_start, data_koniec, stawka_godzinowa, godziny, wyplata, przedmiot_umowy)"+
+                    "VALUES(3, '2014/12/03', '2014-12-02','2014-12-27',25,201,5025,'Prace spawalnicze na jednostce NB201');";
+            stmt.execute(sql);
+            sql="INSERT INTO Wynagrodzenia(id_pracownik, umowa, data_start, data_koniec, stawka_godzinowa, godziny, wyplata, przedmiot_umowy)"+
+                    "VALUES(1, '2015/01/01', '2015-01-03','2015-01-27',16,200,3200,'Koordynacja prac spawalniczych na jednostce NB202');";
+            stmt.execute(sql);
+            sql="INSERT INTO Wynagrodzenia(id_pracownik, umowa, data_start, data_koniec, stawka_godzinowa, godziny, wyplata, przedmiot_umowy)"+
+                    "VALUES(2, '2015/01/02', '2015-01-03','2015-01-27',26,200,5400,'Montaz barierer na jednostce NB23/1');";
+            stmt.execute(sql);
+            sql="INSERT INTO Wynagrodzenia(id_pracownik, umowa, data_start, data_koniec, stawka_godzinowa, godziny, wyplata, przedmiot_umowy)"+
+                    "VALUES(3, '2015/01/03', '2015-01-03','2015-01-27',25,190,4750,'Spawanie wregow nr 11 do 23 na jednostce NB212/2');";
+            stmt.execute(sql);
+
+            // my own
+        } catch (SQLException e) {
+            System.err.println("Blad przy seedowaniu tabeli Pracownik");
+            e.printStackTrace();
+        }
+    }
+
+    public boolean IsSeedWynagrodzenia(){
+        String sql = "SELECT COUNT(id_umowa) AS Count FROM Wynagrodzenia";
+        int tmp = 1;
+
+        //execute query
+
+        try {
+            ResultSet result = stmt.executeQuery(sql);
+
+            while(result.next()) {
+                tmp = result.getInt("Count");}
+
+        } catch (SQLException e) {
+            System.err.println("Blad przy sprawdzaniu czy trzeba zaseedowac tabele wynagrodzenia");
+            e.printStackTrace();
+        }
+
+        if (tmp > 0)
+            return false;
+        else
+            return true;
+    } // Untested
+
+    public void SeedWypozyczenia(){
+
+        String sql;
+        try {
+            sql="INSERT INTO Wypozyczenia(id_narzedzia, id_pracownik, data_wyp) " +
+                    "VALUES (1,1,'2014-11-03');";
+            stmt.execute(sql);
+            sql="INSERT INTO Wypozyczenia(id_narzedzia, id_pracownik, data_wyp) " +
+                    "VALUES (3,2,'2014-12-03');";
+            stmt.execute(sql);
+            sql="INSERT INTO Wypozyczenia(id_narzedzia, id_pracownik, data_wyp) " +
+                    "VALUES (3,4,'2014-12-03');";
+            stmt.execute(sql);
+            sql="INSERT INTO Wypozyczenia(id_narzedzia, id_pracownik, data_wyp, data_zwrot) " +
+                    "VALUES (3,3,'2014-12-03', '2014-12-10');";
+            stmt.execute(sql);
+            sql="INSERT INTO Wypozyczenia(id_narzedzia, id_pracownik, data_wyp) " +
+                    "VALUES (2,5,'2014-12-03');";
+            stmt.execute(sql);
+            sql="INSERT INTO Wypozyczenia(id_narzedzia, id_pracownik, data_wyp) " +
+                    "VALUES (2,7,'2014-12-03');";
+            stmt.execute(sql);
+            sql="INSERT INTO Wypozyczenia(id_narzedzia, id_pracownik, data_wyp, data_zwrot) " +
+                    "VALUES (2,3,'2014-12-10','2014-12-24');";
+            stmt.execute(sql);
+            sql="INSERT INTO Wypozyczenia(id_narzedzia, id_pracownik, data_wyp, data_zwrot) " +
+                    "VALUES (3,3,'2014-12-27','2015-03-07');";
+            stmt.execute(sql);
+
+
+            // my own
+        } catch (SQLException e) {
+            System.err.println("Blad przy seedowaniu tabeli Narzedzia");
+            e.printStackTrace();
+        }
+    }
+
+    public boolean IsSeedWypozyczenia(){
+
+        String sql = "SELECT COUNT(id_wypozyczenia) AS Count FROM Wypozyczenia";
+        int tmp = 1;
+
+        //execute query
+
+        try {
+            ResultSet result = stmt.executeQuery(sql);
+
+            while(result.next()) {
+                tmp = result.getInt("Count");}
+
+        } catch (SQLException e) {
+            System.err.println("Blad przy sprawdzaniu czy trzeba zaseedowac tabele wypozyczenia");
+            e.printStackTrace();
+        }
+
+        if (tmp > 0)
+            return false;
+        else
+            return true;
+    } // Untested
+
+    // Pracownik
 
     public ObservableList<pracownikData> getPracownicyDB(){
 
@@ -230,25 +351,13 @@ public class DBconnection {
 
         int i = 1;
 
-        //Connect
-
-        try {
-            conn = DriverManager.getConnection(DB_URL);
-            stmt = conn.createStatement();
-        } catch (SQLException e) {
-            System.err.println("Problem z otwarciem połączenia");
-            e.printStackTrace();
-        }
-
         //Find Data
 
         try {
             ResultSet result = stmt.executeQuery("SELECT * FROM Pracownik");
-            int id;
             String nazwisko, imie, narodowosc, stanowisko, data_zatr, data_wyp;
 
             while(result.next()) {
-                //id = result.getInt("id_pracownik"); Do I need this?
                 nazwisko = result.getString("nazwisko");
                 imie = result.getString("imie");
                 narodowosc = result.getString("narodowosc");
@@ -265,12 +374,6 @@ public class DBconnection {
             System.err.println("Blad przy wykonywaniu ladowaniu pracownikow");
             e.printStackTrace();
         }
-        try{
-            conn.close();
-        }
-        catch(SQLException e){
-            e.printStackTrace();
-        }
         return output;
     }
 
@@ -281,7 +384,6 @@ public class DBconnection {
         String sql="INSERT INTO Pracownik(nazwisko, imie, narodowosc, stanowisko, data_zatr) " +
                 "VALUES (?, ?, ?, ?, ?);";
         try {
-            conn = DriverManager.getConnection(DB_URL);
             PreparedStatement stmtAdd = conn.prepareStatement(sql);
 
             stmtAdd.setString(1,pd.getNazwisko());
@@ -300,19 +402,9 @@ public class DBconnection {
         }
 
         // Close
-
-        try{
-            conn.close();
-        }
-        catch(SQLException e){
-            e.printStackTrace();
-        }
-
-
-
     }
 
-    public int znajdzPracownika(pracownikData pd){
+    public int znajdzPracownikaDB(pracownikData pd){
 
         int output = 0;
 
@@ -325,7 +417,6 @@ public class DBconnection {
                 //no data wyp as of yet
 
         try {
-            conn = DriverManager.getConnection(DB_URL);
             PreparedStatement stmtAdd = conn.prepareStatement(sql);
 
             stmtAdd.setString(1,pd.getNazwisko());
@@ -343,15 +434,6 @@ public class DBconnection {
             System.err.println("Blad przy [szukaniu] osoby");
             e.printStackTrace();
         }
-
-        // Close
-
-        try{
-            conn.close();
-        }
-        catch(SQLException e){
-            e.printStackTrace();
-        }
         return output;
     }
 
@@ -361,7 +443,6 @@ public class DBconnection {
 
         // Delete
        try {
-            conn = DriverManager.getConnection(DB_URL);
             PreparedStatement stmtAdd = conn.prepareStatement(sql);
 
             stmtAdd.setInt(1,id_prac);
@@ -372,20 +453,11 @@ public class DBconnection {
             System.err.println("Blad przy [usuwaniu] osoby");
             e.printStackTrace();
         }
-
-        // Close
-
-       try{
-            conn.close();
-        }
-        catch(SQLException e){
-            e.printStackTrace();
-        }
     }
 
     public void modyfikujPracownikaDB(pracownikData pd, pracownikData pdOld){
 
-        int id_prac = znajdzPracownika(pdOld);
+        int id_prac = znajdzPracownikaDB(pdOld);
 
         String sql = "UPDATE Pracownik " +
                 "SET nazwisko = ?," +
@@ -397,7 +469,6 @@ public class DBconnection {
                 "WHERE id_pracownik = ?";
 
         try {
-            conn = DriverManager.getConnection(DB_URL);
             PreparedStatement stmtAdd = conn.prepareStatement(sql);
 
             stmtAdd.setString(1,pd.getNazwisko());
@@ -417,18 +488,54 @@ public class DBconnection {
             System.err.println("Blad przy [edytowaniu] osoby");
             e.printStackTrace();
         }
+    }
 
-        // Close
+    // Narzedzia
 
+    public ObservableList<narzedziaData> getNarzedziaDB(){
+
+        ObservableList<narzedziaData> output = FXCollections.observableArrayList();
+
+        int i = 1;
+
+        //Find Data
+
+        try {
+            ResultSet result = stmt.executeQuery("SELECT * FROM Narzedzia");
+            String nazwa, kod, data_zakupu, data_utylizacji;
+            BigDecimal cena;
+
+            while(result.next()) {
+                nazwa = result.getString("nazwa");
+                kod = result.getString("kod");
+                data_zakupu = result.getString("data_zakupu");
+                data_utylizacji = result.getString("data_utylizacji");
+                cena = result.getBigDecimal("cena"); // DECIMAL -> BIGDECIMAL
+
+                //Cena is being passed as Double, not Money/Decimal/BigDecimal
+                narzedziaData nd = new narzedziaData(nazwa, kod, data_zakupu, data_utylizacji, cena);
+                nd.setLp(i++);
+
+                output.add(nd);
+            }
+        } catch (SQLException e) {
+            System.err.println("Blad przy wykonywaniu ladowaniu narzedzi");
+            e.printStackTrace();
+        }
+        return output;
+    }
+
+    // Wypozyczenia
+
+    // Wynagrodzenie
+
+    public void closeConnection(){
         try{
             conn.close();
         }
         catch(SQLException e){
             e.printStackTrace();
         }
-
-
-
     }
 
 }
