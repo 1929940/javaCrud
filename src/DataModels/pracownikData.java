@@ -9,6 +9,8 @@ public class pracownikData {
 
     public static pracownikData containerPracownik;
 
+
+
     private IntegerProperty Lp;
     private final StringProperty Nazwisko;
     private final StringProperty Imie;

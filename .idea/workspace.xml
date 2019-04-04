@@ -2,13 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Figured DB for Pracownicy Tab">
+      <change afterPath="$PROJECT_DIR$/src/DataModels/dropBoxNarzedzia.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataModels/dropBoxPracownik.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MK_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/MK_database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/DataModels/dataLists.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/DataModels/narzedziaData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/DataModels/narzedziaData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/DataModels/wynagrodzenieData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/DataModels/wynagrodzenieData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/DataModels/wypozyczeniaData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/DataModels/wypozyczeniaData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Controller$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Controller$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Controller$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Windows/confirmDialog/confirmDialogController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Windows/confirmDialog/confirmDialogFXML.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/mainWindowFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/mainWindowFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/dbUtilities/DBconnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/dbUtilities/DBconnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataModels/dataLists.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataModels/narzedziaData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/narzedziaData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataModels/pracownikData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/pracownikData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataModels/wynagrodzenieData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/wynagrodzenieData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataModels/wypozyczeniaData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/wypozyczeniaData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Windows/dodajPracownika/dodajPracownikaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Windows/dodajPracownika/dodajPracownikaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Windows/modyfikujPracownika/modyfikujPracownikaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Windows/modyfikujPracownika/modyfikujPracownikaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Windows/confirmDialog/confirmDialogController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Windows/confirmDialog/confirmDialogFXML.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/mainWindowFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/mainWindowFXML.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dbUtilities/DBconnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dbUtilities/DBconnection.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -72,46 +89,67 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="927">
-              <caret line="210" column="24" selection-start-line="210" selection-start-column="24" selection-end-line="210" selection-end-column="24" />
+            <state relative-caret-position="59">
+              <caret line="129" column="13" lean-forward="true" selection-start-line="129" selection-start-column="13" selection-end-line="129" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#pracownicy_dodaj_click#0;class#Controller#0" />
-                <element signature="method#pracownicy_modyfikuj_click#0;class#Controller#0" />
+                <element signature="e#2554#2555#0" expanded="true" />
+                <element signature="e#2614#2615#0" expanded="true" />
+                <element signature="method#pracownicy_zaladuj#0;class#Controller#0" />
+                <element signature="e#5146#5147#0" expanded="true" />
+                <element signature="e#5206#5207#0" expanded="true" />
                 <element signature="method#pracownicy_usun_click#0;class#Controller#0" />
-                <element signature="method#initialize#0;class#Controller#0" />
+                <element signature="method#narzedzia_zaladuj#0;class#Controller#0" />
+                <element signature="e#8560#9679#0" />
+                <element signature="e#9724#10882#0" />
+                <element signature="e#10712#10713#0" expanded="true" />
+                <element signature="e#10772#10773#0" expanded="true" />
+                <element signature="method#narzedzia_zaladuj#0;class#Controller#0" />
+                <element signature="e#10867#11974#0" />
+                <element signature="e#13218#14376#0" />
+                <element signature="e#14202#14203#0" expanded="true" />
+                <element signature="e#14262#14263#0" expanded="true" />
+                <element signature="e#11023#11137#0" />
+                <element signature="e#13671#14762#0" />
+                <element signature="e#17199#18357#0" />
+                <element signature="e#18184#18185#0" expanded="true" />
+                <element signature="e#18244#18245#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dbUtilities/DBconnection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1254">
-              <caret line="529" column="20" selection-start-line="529" selection-start-column="20" selection-end-line="529" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#DBconnection#0;class#DBconnection#0" />
-                <element signature="method#initilizeDB#0;class#DBconnection#0" />
-                <element signature="method#seedPracownik#0;class#DBconnection#0" />
-                <element signature="method#IsSeedPracownik#0;class#DBconnection#0" />
-                <element signature="method#seedNarzedzia#0;class#DBconnection#0" />
-                <element signature="method#IsSeedNarzedzia#0;class#DBconnection#0" />
-                <element signature="method#SeedWynagrodzenia#0;class#DBconnection#0" />
-                <element signature="method#IsSeedWynagrodzenia#0;class#DBconnection#0" />
-                <element signature="method#SeedWypozyczenia#0;class#DBconnection#0" />
-                <element signature="method#IsSeedWypozyczenia#0;class#DBconnection#0" />
-                <element signature="method#getPracownicyDB#0;class#DBconnection#0" />
-                <element signature="method#dodajPracownikaDB#0;class#DBconnection#0" />
-                <element signature="method#znajdzPracownika#0;class#DBconnection#0" />
-                <element signature="method#usunPracownikaDB#0;class#DBconnection#0" />
-                <element signature="method#modyfikujPracownikaDB#0;class#DBconnection#0" />
-                <element signature="method#getPracownicyDB#1;class#DBconnection#0" />
-                <element signature="method#closeConnection#0;class#DBconnection#0" />
-              </folding>
+        <entry file="file://$PROJECT_DIR$/src/Main/mainWindowFXML.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="558">
+              <caret line="189" column="52" selection-start-line="189" selection-start-column="52" selection-end-line="189" selection-end-column="52" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajNarzedzia/dodajNarzedziaFXML.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="26" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajWynagrodzenie/dodajWynagrodzenieFXML.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajWypozyczenie/dodajWypozyczenieFXML.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -166,16 +204,20 @@
         <option value="$PROJECT_DIR$/src/Containers/testContainer.java" />
         <option value="$PROJECT_DIR$/src/Main/Windows/modyfikujPracownika/modyfikujPracownikaFXML.fxml" />
         <option value="$PROJECT_DIR$/src/Main/Windows/dodajPracownika/dodajPracownikaFXML.fxml" />
-        <option value="$PROJECT_DIR$/src/DataModels/wynagrodzenieData.java" />
-        <option value="$PROJECT_DIR$/src/DataModels/pracownikData.java" />
-        <option value="$PROJECT_DIR$/src/Main/mainWindowFXML.fxml" />
-        <option value="$PROJECT_DIR$/src/DataModels/dataLists.java" />
         <option value="$PROJECT_DIR$/src/Main/Main.java" />
         <option value="$PROJECT_DIR$/src/Main/Windows/modyfikujPracownika/modyfikujPracownikaController.java" />
         <option value="$PROJECT_DIR$/src/Main/Windows/dodajPracownika/dodajPracownikaController.java" />
-        <option value="$PROJECT_DIR$/src/Main/Controller.java" />
+        <option value="$PROJECT_DIR$/src/DataModels/dropBoxPracownik.java" />
+        <option value="$PROJECT_DIR$/src/DataModels/dropBoxNarzedzie.java" />
+        <option value="$PROJECT_DIR$/src/DataModels/dropBoxNarzedzia.java" />
+        <option value="$PROJECT_DIR$/src/DataModels/dataLists.java" />
+        <option value="$PROJECT_DIR$/src/DataModels/wynagrodzenieData.java" />
+        <option value="$PROJECT_DIR$/src/DataModels/wypozyczeniaData.java" />
+        <option value="$PROJECT_DIR$/src/DataModels/pracownikData.java" />
         <option value="$PROJECT_DIR$/src/DataModels/narzedziaData.java" />
         <option value="$PROJECT_DIR$/src/dbUtilities/DBconnection.java" />
+        <option value="$PROJECT_DIR$/src/Main/mainWindowFXML.fxml" />
+        <option value="$PROJECT_DIR$/src/Main/Controller.java" />
       </list>
     </option>
   </component>
@@ -195,6 +237,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -216,13 +259,25 @@
             </path>
             <path>
               <item name="Project_MaciejKarczewski" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_MaciejKarczewski" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Project_MaciejKarczewski" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_MaciejKarczewski" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Main" type="462c0819:PsiDirectoryNode" />
+              <item name="Windows" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Project_MaciejKarczewski" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -416,10 +471,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Main/modify/mod_narzedzia/narzedzia.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Main/modify/mainWindowFXML.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Main/sample.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Main/modify/mod_narzedzia/narzedziaController.java" />
     <entry file="file://$PROJECT_DIR$/src/Main/modify/mod_prac/pracownicyController.java" />
     <entry file="file://$PROJECT_DIR$/src/Main/modify/mod_wynag/wynagrodzenieController.java" />
     <entry file="file://$PROJECT_DIR$/src/Main/modify/mod_wypoz/wypozyczeniaController.java" />
@@ -438,13 +489,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/Windows/confirmDialog/confirmDialogFMXL.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Main/Windows/confirmDialog/confirmDialogController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Windows/confirmDialog/confirmDialogController.java" />
     <entry file="file://$PROJECT_DIR$/src/Main/Windows/modyfikujWypozyczenie/modyfikujWypozyczenieController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -482,66 +527,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/Windows/modyfikujNarzedzia/modyfikujNarzedziaFMXL.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Main/Windows/modyfikujWynagrodzenie/modyfikujWynagrodzenieFXML.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="95" selection-start-line="10" selection-start-column="95" selection-end-line="10" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Windows/modyfikujNarzedzia/modyfikujNardzedziaFXML.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Windows/modyfikujWypozyczenie/modyfikujWypozyczenieFXML.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="93" selection-start-line="10" selection-start-column="93" selection-end-line="10" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Windows/confirmDialog/confirmDialogFXML.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="77" selection-start-line="10" selection-start-column="77" selection-end-line="10" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Windows/confirmDialog/confirmDialogFXML.fxml" />
     <entry file="file://$PROJECT_DIR$/src/Main/modify/mod_prac/pracownicy.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajNarzedzia/dodajNarzedziaFXML.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="26" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajWynagrodzenie/dodajWynagrodzenieFXML.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajWypozyczenie/dodajWypozyczenieFXML.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/wypozyczeniaData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/com/sun/javafx/application/LauncherImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
@@ -580,104 +567,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="2547" column="48" selection-start-line="2547" selection-start-column="48" selection-end-line="2547" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/wynagrodzenieData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="58" column="49" selection-start-line="58" selection-start-column="49" selection-end-line="58" selection-end-column="49" />
-          <folding>
-            <element signature="e#2809#2810#0" expanded="true" />
-            <element signature="e#2834#2835#0" expanded="true" />
-            <element signature="e#2933#2934#0" expanded="true" />
-            <element signature="e#2970#2971#0" expanded="true" />
-            <element signature="e#3315#3316#0" expanded="true" />
-            <element signature="e#3350#3351#0" expanded="true" />
-            <element signature="e#4516#4517#0" expanded="true" />
-            <element signature="e#4555#4556#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajNarzedzia/dodajNarzedziaController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/mainWindowFXML.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="189" selection-start-line="16" selection-start-column="158" selection-end-line="16" selection-end-column="189" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/dataLists.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/pracownikData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2048#2049#0" expanded="true" />
-            <element signature="e#2079#2080#0" expanded="true" />
-            <element signature="e#2122#2123#0" expanded="true" />
-            <element signature="e#2147#2148#0" expanded="true" />
-            <element signature="e#2184#2185#0" expanded="true" />
-            <element signature="e#2215#2216#0" expanded="true" />
-            <element signature="e#2250#2251#0" expanded="true" />
-            <element signature="e#2287#2288#0" expanded="true" />
-            <element signature="e#2335#2336#0" expanded="true" />
-            <element signature="e#2366#2367#0" expanded="true" />
-            <element signature="e#2414#2415#0" expanded="true" />
-            <element signature="e#2457#2458#0" expanded="true" />
-            <element signature="e#2488#2489#0" expanded="true" />
-            <element signature="e#2521#2522#0" expanded="true" />
-            <element signature="e#2565#2566#0" expanded="true" />
-            <element signature="e#2592#2593#0" expanded="true" />
-            <element signature="e#2632#2633#0" expanded="true" />
-            <element signature="e#2667#2668#0" expanded="true" />
-            <element signature="e#2704#2705#0" expanded="true" />
-            <element signature="e#2743#2744#0" expanded="true" />
-            <element signature="e#2793#2794#0" expanded="true" />
-            <element signature="e#2826#2827#0" expanded="true" />
-            <element signature="e#2878#2879#0" expanded="true" />
-            <element signature="e#2925#2926#0" expanded="true" />
-            <element signature="e#2962#2963#0" expanded="true" />
-            <element signature="e#3001#3002#0" expanded="true" />
-            <element signature="e#3051#3052#0" expanded="true" />
-            <element signature="e#3084#3085#0" expanded="true" />
-            <element signature="e#3136#3137#0" expanded="true" />
-            <element signature="e#3183#3184#0" expanded="true" />
-            <element signature="e#3218#3219#0" expanded="true" />
-            <element signature="e#3255#3256#0" expanded="true" />
-            <element signature="e#3303#3304#0" expanded="true" />
-            <element signature="e#3334#3335#0" expanded="true" />
-            <element signature="e#3382#3383#0" expanded="true" />
-            <element signature="e#3425#3426#0" expanded="true" />
-            <element signature="e#3459#3460#0" expanded="true" />
-            <element signature="e#3495#3496#0" expanded="true" />
-            <element signature="e#3542#3543#0" expanded="true" />
-            <element signature="e#3572#3573#0" expanded="true" />
-            <element signature="e#3618#3619#0" expanded="true" />
-            <element signature="e#3659#3660#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -712,20 +605,136 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/narzedziaData.java">
+    <entry file="file://$PROJECT_DIR$/src/Main/Windows/modyfikujNarzedzia/modyfikujNardzedziaFXML.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Windows/modyfikujWynagrodzenie/modyfikujWynagrodzenieFXML.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="95" selection-start-line="10" selection-start-column="95" selection-end-line="10" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Windows/modyfikujWypozyczenie/modyfikujWypozyczenieFXML.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="93" selection-start-line="10" selection-start-column="93" selection-end-line="10" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataModels/dropBoxPracownik.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-537">
-          <caret line="31" column="58" selection-start-line="31" selection-start-column="58" selection-end-line="31" selection-end-column="58" />
+        <state relative-caret-position="323">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+          <folding>
+            <element signature="e#193#194#0" expanded="true" />
+            <element signature="e#231#232#0" expanded="true" />
+            <element signature="e#441#442#0" expanded="true" />
+            <element signature="e#476#477#0" expanded="true" />
+            <element signature="e#507#508#0" expanded="true" />
+            <element signature="e#538#539#0" expanded="true" />
+            <element signature="e#565#566#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataModels/dropBoxNarzedzia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+          <folding>
+            <element signature="e#371#372#0" expanded="true" />
+            <element signature="e#404#405#0" expanded="true" />
+            <element signature="e#447#448#0" expanded="true" />
+            <element signature="e#482#483#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#572#573#0" expanded="true" />
+            <element signature="e#598#599#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/collections/ModifiableObservableListBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="243" selection-start-line="243" selection-end-line="243" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/collections/FXCollections.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="304" selection-start-line="304" selection-end-line="304" />
+          <folding>
+            <element signature="e#11668#11669#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataModels/dataLists.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="2" selection-start-line="18" selection-end-line="27" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="2577" selection-start-line="2577" selection-end-line="2577" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataModels/pracownikData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataModels/wynagrodzenieData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="61" column="50" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataModels/narzedziaData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" column="34" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1807#1808#0" expanded="true" />
+            <element signature="e#1860#1861#0" expanded="true" />
+            <element signature="e#1895#1896#0" expanded="true" />
+            <element signature="e#1948#1949#0" expanded="true" />
+            <element signature="e#1999#2000#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/dbUtilities/DBconnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1254">
-          <caret line="529" column="20" selection-start-line="529" selection-start-column="20" selection-end-line="529" selection-end-column="20" />
+        <state relative-caret-position="1449">
+          <caret line="681" column="48" selection-start-line="681" selection-start-column="48" selection-end-line="681" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#DBconnection#0;class#DBconnection#0" />
@@ -740,25 +749,82 @@
             <element signature="method#IsSeedWypozyczenia#0;class#DBconnection#0" />
             <element signature="method#getPracownicyDB#0;class#DBconnection#0" />
             <element signature="method#dodajPracownikaDB#0;class#DBconnection#0" />
-            <element signature="method#znajdzPracownika#0;class#DBconnection#0" />
+            <element signature="method#znajdzPracownikaDB#0;class#DBconnection#0" />
             <element signature="method#usunPracownikaDB#0;class#DBconnection#0" />
             <element signature="method#modyfikujPracownikaDB#0;class#DBconnection#0" />
-            <element signature="method#getPracownicyDB#1;class#DBconnection#0" />
+            <element signature="method#getNarzedziaDB#0;class#DBconnection#0" />
+            <element signature="method#usunPracownikaDB#1;class#DBconnection#0" />
+            <element signature="method#getWypozyczeniaDB#0;class#DBconnection#0" />
+            <element signature="method#usunNarzedzieDB#1;class#DBconnection#0" />
+            <element signature="method#getWypozyczeniaDB#1;class#DBconnection#0" />
+            <element signature="method#usunNarzedzieDB#1;class#DBconnection#0" />
             <element signature="method#closeConnection#0;class#DBconnection#0" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataModels/wypozyczeniaData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-748">
+          <caret line="37" column="52" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajWypozyczenie/dodajWypozyczenieFXML.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajWynagrodzenie/dodajWynagrodzenieFXML.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajNarzedzia/dodajNarzedziaFXML.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="26" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/mainWindowFXML.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="189" column="52" selection-start-line="189" selection-start-column="52" selection-end-line="189" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="927">
-          <caret line="210" column="24" selection-start-line="210" selection-start-column="24" selection-end-line="210" selection-end-column="24" />
+        <state relative-caret-position="59">
+          <caret line="129" column="13" lean-forward="true" selection-start-line="129" selection-start-column="13" selection-end-line="129" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#pracownicy_dodaj_click#0;class#Controller#0" />
-            <element signature="method#pracownicy_modyfikuj_click#0;class#Controller#0" />
+            <element signature="e#2554#2555#0" expanded="true" />
+            <element signature="e#2614#2615#0" expanded="true" />
+            <element signature="method#pracownicy_zaladuj#0;class#Controller#0" />
+            <element signature="e#5146#5147#0" expanded="true" />
+            <element signature="e#5206#5207#0" expanded="true" />
             <element signature="method#pracownicy_usun_click#0;class#Controller#0" />
-            <element signature="method#initialize#0;class#Controller#0" />
+            <element signature="method#narzedzia_zaladuj#0;class#Controller#0" />
+            <element signature="e#8560#9679#0" />
+            <element signature="e#9724#10882#0" />
+            <element signature="e#10712#10713#0" expanded="true" />
+            <element signature="e#10772#10773#0" expanded="true" />
+            <element signature="method#narzedzia_zaladuj#0;class#Controller#0" />
+            <element signature="e#10867#11974#0" />
+            <element signature="e#13218#14376#0" />
+            <element signature="e#14202#14203#0" expanded="true" />
+            <element signature="e#14262#14263#0" expanded="true" />
+            <element signature="e#11023#11137#0" />
+            <element signature="e#13671#14762#0" />
+            <element signature="e#17199#18357#0" />
+            <element signature="e#18184#18185#0" expanded="true" />
+            <element signature="e#18244#18245#0" expanded="true" />
           </folding>
         </state>
       </provider>

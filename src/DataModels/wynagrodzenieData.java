@@ -2,15 +2,20 @@ package DataModels;
 
 import javafx.beans.property.*;
 
+import java.math.BigDecimal;
+
 public class wynagrodzenieData {
 
     public static wynagrodzenieData containerWynagrodzenie;
+
+    private final IntegerProperty Id_umowa;
+    private final IntegerProperty Id_pracownik;
 
     private IntegerProperty Lp;
     private final StringProperty Nazwisko;
     private final StringProperty Imie;
     private final StringProperty Stanowisko;
-    private final IntegerProperty Umowa;
+    private final StringProperty Umowa;
     private final StringProperty DataStart;
     private final StringProperty DataKoniec;
     private final DoubleProperty Stawka;
@@ -18,11 +23,18 @@ public class wynagrodzenieData {
     private final DoubleProperty Wyplata;
     private final StringProperty Przedmiot;
 
-    public wynagrodzenieData(String nazwisko, String imie, String stanowisko, int umowa, String dataStart, double stawka, double liczbaGodzin, String przedmiot) {
+    // Use for creating new objects
+    public wynagrodzenieData(int id_umowa, int id_pracownik, String nazwisko, String imie, String stanowisko, String umowa, String dataStart, double stawka, double liczbaGodzin, String przedmiot) {
+
+        Lp = new SimpleIntegerProperty(0);
+
+        Id_umowa = new SimpleIntegerProperty(id_umowa);
+        Id_pracownik = new SimpleIntegerProperty(id_pracownik);
+
         Nazwisko = new SimpleStringProperty(nazwisko);
         Imie = new SimpleStringProperty(imie);
         Stanowisko = new SimpleStringProperty(stanowisko);
-        Umowa = new SimpleIntegerProperty(umowa);
+        Umowa = new SimpleStringProperty(umowa);
         DataStart = new SimpleStringProperty(dataStart);
         DataKoniec = new SimpleStringProperty("");
         Stawka = new SimpleDoubleProperty(stawka);
@@ -31,11 +43,18 @@ public class wynagrodzenieData {
         Przedmiot = new SimpleStringProperty(przedmiot);
     }
 
-    public wynagrodzenieData(String nazwisko, String imie, String stanowisko, int umowa, String dataStart, String dataKoniec, double stawka, double liczbaGodzin, double wyplata, String przedmiot) {
+    //Use for displaying or modifying
+    public wynagrodzenieData(int id_umowa, int id_pracownik, String nazwisko, String imie, String stanowisko, String umowa, String dataStart, String dataKoniec, double stawka, double liczbaGodzin, double wyplata, String przedmiot) {
+
+        Lp = new SimpleIntegerProperty(0);
+
+        Id_umowa = new SimpleIntegerProperty(id_umowa);
+        Id_pracownik = new SimpleIntegerProperty(id_pracownik);
+
         Nazwisko = new SimpleStringProperty(nazwisko);
         Imie = new SimpleStringProperty(imie);
         Stanowisko = new SimpleStringProperty(stanowisko);
-        Umowa = new SimpleIntegerProperty(umowa);
+        Umowa = new SimpleStringProperty(umowa);
         DataStart = new SimpleStringProperty(dataStart);
         DataKoniec = new SimpleStringProperty(dataKoniec);
         Stawka = new SimpleDoubleProperty(stawka);
@@ -59,6 +78,42 @@ public class wynagrodzenieData {
                 "\nPrzedmiot: " + getPrzedmiot();
 
         return output;
+    }
+
+    public int getId_umowa() {
+        return Id_umowa.get();
+    }
+
+    public IntegerProperty id_umowaProperty() {
+        return Id_umowa;
+    }
+
+    public void setId_umowa(int id_umowa) {
+        this.Id_umowa.set(id_umowa);
+    }
+
+    public int getId_pracownik() {
+        return Id_pracownik.get();
+    }
+
+    public IntegerProperty id_pracownikProperty() {
+        return Id_pracownik;
+    }
+
+    public void setId_pracownik(int id_pracownik) {
+        this.Id_pracownik.set(id_pracownik);
+    }
+
+    public String getUmowa() {
+        return Umowa.get();
+    }
+
+    public StringProperty umowaProperty() {
+        return Umowa;
+    }
+
+    public void setUmowa(String umowa) {
+        this.Umowa.set(umowa);
     }
 
     public int getLp() {
@@ -107,18 +162,6 @@ public class wynagrodzenieData {
 
     public void setStanowisko(String stanowisko) {
         this.Stanowisko.set(stanowisko);
-    }
-
-    public int getUmowa() {
-        return Umowa.get();
-    }
-
-    public IntegerProperty umowaProperty() {
-        return Umowa;
-    }
-
-    public void setUmowa(int umowa) {
-        this.Umowa.set(umowa);
     }
 
     public String getDataStart() {

@@ -1,12 +1,12 @@
 package DataModels;
 
-public class dropBoxNarzedzie {
+public class dropBoxNarzedzia {
 
     private final int id_narzedzia;
     private final String nazwa;
     private final String kod;
 
-    public dropBoxNarzedzie(int id_narzedzia, String nazwa, String kod) {
+    public dropBoxNarzedzia(int id_narzedzia, String nazwa, String kod) {
         this.id_narzedzia = id_narzedzia;
         this.nazwa = nazwa;
         this.kod = kod;

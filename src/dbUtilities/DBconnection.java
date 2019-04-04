@@ -2,10 +2,11 @@ package dbUtilities;
 
 import DataModels.narzedziaData;
 import DataModels.pracownikData;
+import DataModels.wynagrodzenieData;
+import DataModels.wypozyczeniaData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.math.BigDecimal;
 import java.sql.*;
 ;
 
@@ -290,22 +291,22 @@ public class DBconnection {
                     "VALUES (1,1,'2014-11-03');";
             stmt.execute(sql);
             sql="INSERT INTO Wypozyczenia(id_narzedzia, id_pracownik, data_wyp) " +
-                    "VALUES (3,2,'2014-12-03');";
+                    "VALUES (2,3,'2014-12-03');";
             stmt.execute(sql);
             sql="INSERT INTO Wypozyczenia(id_narzedzia, id_pracownik, data_wyp) " +
-                    "VALUES (3,4,'2014-12-03');";
+                    "VALUES (4,3,'2014-12-03');";
             stmt.execute(sql);
             sql="INSERT INTO Wypozyczenia(id_narzedzia, id_pracownik, data_wyp, data_zwrot) " +
                     "VALUES (3,3,'2014-12-03', '2014-12-10');";
             stmt.execute(sql);
             sql="INSERT INTO Wypozyczenia(id_narzedzia, id_pracownik, data_wyp) " +
-                    "VALUES (2,5,'2014-12-03');";
+                    "VALUES (5,2,'2014-12-03');";
             stmt.execute(sql);
             sql="INSERT INTO Wypozyczenia(id_narzedzia, id_pracownik, data_wyp) " +
-                    "VALUES (2,7,'2014-12-03');";
+                    "VALUES (7,2,'2014-12-03');";
             stmt.execute(sql);
             sql="INSERT INTO Wypozyczenia(id_narzedzia, id_pracownik, data_wyp, data_zwrot) " +
-                    "VALUES (2,3,'2014-12-10','2014-12-24');";
+                    "VALUES (3,2,'2014-12-10','2014-12-24');";
             stmt.execute(sql);
             sql="INSERT INTO Wypozyczenia(id_narzedzia, id_pracownik, data_wyp, data_zwrot) " +
                     "VALUES (3,3,'2014-12-27','2015-03-07');";
@@ -503,17 +504,19 @@ public class DBconnection {
         try {
             ResultSet result = stmt.executeQuery("SELECT * FROM Narzedzia");
             String nazwa, kod, data_zakupu, data_utylizacji;
-            BigDecimal cena;
+            double cena;
+            int id_narzedzia;
 
             while(result.next()) {
+                id_narzedzia = result.getInt("id_narzedzia") ;
                 nazwa = result.getString("nazwa");
                 kod = result.getString("kod");
                 data_zakupu = result.getString("data_zakupu");
                 data_utylizacji = result.getString("data_utylizacji");
-                cena = result.getBigDecimal("cena"); // DECIMAL -> BIGDECIMAL
+                cena = result.getDouble("cena"); // DECIMAL -> BIGDECIMAL
 
                 //Cena is being passed as Double, not Money/Decimal/BigDecimal
-                narzedziaData nd = new narzedziaData(nazwa, kod, data_zakupu, data_utylizacji, cena);
+                narzedziaData nd = new narzedziaData(id_narzedzia, kod, nazwa, data_zakupu, data_utylizacji, cena);
                 nd.setLp(i++);
 
                 output.add(nd);
@@ -525,9 +528,176 @@ public class DBconnection {
         return output;
     }
 
+    public void usunNarzedzieDB(int id_prac){
+
+        String sql="DELETE FROM Narzedzia WHERE id_narzedzia = ?";
+
+        // Delete
+        try {
+            PreparedStatement stmtAdd = conn.prepareStatement(sql);
+
+            stmtAdd.setInt(1,id_prac);
+
+            stmtAdd.execute();
+
+        } catch (SQLException e) {
+            System.err.println("Blad przy [usuwaniu] narzedzia");
+            e.printStackTrace();
+        }
+    }
+
     // Wypozyczenia
 
+    public ObservableList<wypozyczeniaData> getWypozyczeniaDB(){
+
+        ObservableList<wypozyczeniaData> output = FXCollections.observableArrayList();
+
+        int i = 1;
+
+        //Find Data
+
+        try {
+/*            String sql = "SELECT wy.*, pa.nazwisko, pa.imie, pa.stanowisko, na.kod, na.nazwa, na.cena"+
+            "FROM Wypozyczenia as wy"+
+            "INNER JOIN Pracownik as pa"+
+            "on pa.id_pracownik = wy.id_pracownik"+
+            "INNER JOIN Narzedzia as na"+
+            "on wy.id_narzedzia = na.id_narzedzia;";*/
+
+            String sql = "SELECT wy.*, pa.nazwisko, pa.imie, pa.stanowisko, na.kod, na.nazwa, na.cena FROM Wypozyczenia as wy INNER JOIN Pracownik as pa on pa.id_pracownik = wy.id_pracownik INNER JOIN Narzedzia as na on wy.id_narzedzia = na.id_narzedzia;";
+
+
+            ResultSet result = stmt.executeQuery(sql);
+
+            int id_wypozyczenia, id_narzedzia, id_pracownik;
+            String nazwisko, imie, stanowisko, kod, nazwa, data_wyp, data_zwrot;
+            double cena;
+
+            while(result.next()) {
+                id_wypozyczenia = result.getInt("id_wypozyczenia");
+                id_narzedzia = result.getInt("id_narzedzia");
+                id_pracownik = result.getInt("id_pracownik");
+
+                nazwisko = result.getString("nazwisko");
+                imie = result.getString("imie");
+                stanowisko = result.getString("stanowisko");
+
+                kod = result.getString("kod");
+                nazwa = result.getString("nazwa");
+
+                data_wyp = result.getString("data_wyp");
+                data_zwrot = result.getString("data_zwrot");
+
+                cena = result.getDouble("cena"); // DECIMAL -> BIGDECIMAL
+
+                //Cena is being passed as Double, not Money/Decimal/BigDecimal
+                wypozyczeniaData wd = new wypozyczeniaData(id_wypozyczenia,id_narzedzia,id_pracownik,nazwisko,imie,stanowisko,kod,nazwa,data_wyp,data_zwrot,cena);
+                wd.setLp(i++);
+
+                output.add(wd);
+            }
+        } catch (SQLException e) {
+            System.err.println("Blad przy wykonywaniu ladowaniu wypozyczenia");
+            e.printStackTrace();
+        }
+        return output;
+    }
+
+    public void usunWypozyczenieDB(int id_prac){
+
+        String sql="DELETE FROM Wypozyczenia WHERE id_wypozyczenia = ?";
+
+        // Delete
+        try {
+            PreparedStatement stmtAdd = conn.prepareStatement(sql);
+
+            stmtAdd.setInt(1,id_prac);
+
+            stmtAdd.execute();
+
+        } catch (SQLException e) {
+            System.err.println("Blad przy [usuwaniu] wypozyczenia");
+            e.printStackTrace();
+        }
+    }
+
+
     // Wynagrodzenie
+
+    public ObservableList<wynagrodzenieData> getWynagrodzeniaDB(){
+
+        ObservableList<wynagrodzenieData> output = FXCollections.observableArrayList();
+
+        int i = 1;
+
+        //Find Data
+
+        try {
+            String sql = "SELECT wyn.*, pa.nazwisko, pa.imie, pa.stanowisko FROM Wynagrodzenia as wyn INNER JOIN Pracownik as pa on pa.id_pracownik = wyn.id_pracownik;";
+
+/*            String sql = "SELECT wyn.*, pa.nazwisko, pa.imie, pa.stanowisko"+
+            "FROM Wynagrodzenia as wyn"+
+            "INNER JOIN Pracownik as pa"+
+            "on pa.id_pracownik = wyn.id_pracownik;";*/
+
+
+            ResultSet result = stmt.executeQuery(sql);
+
+            int id_umowa, id_pracownik;
+            String nazwisko, imie, stanowisko, umowa, data_start, data_koniec, przedmiot_umowy;
+            double stawka, godziny, wyplata;
+
+            while(result.next()) {
+                id_umowa = result.getInt("id_umowa");
+                id_pracownik = result.getInt("id_pracownik");
+
+                nazwisko = result.getString("nazwisko");
+                imie = result.getString("imie");
+                stanowisko = result.getString("stanowisko");
+
+                umowa = result.getString("umowa");
+                data_start = result.getString("data_start");
+                data_koniec = result.getString("data_koniec");
+                przedmiot_umowy = result.getString("przedmiot_umowy");
+
+                stawka = result.getDouble("stawka_godzinowa");
+                godziny = result.getDouble("godziny");
+
+
+                wyplata = result.getDouble("wyplata"); // BIGDECIMAL -> Is not supported by this driver
+
+                //Wyplata is being passed as Double, not Money/Decimal/BigDecimal
+                wynagrodzenieData wnd = new wynagrodzenieData(id_umowa,id_pracownik,nazwisko,imie,stanowisko,umowa,data_start,data_koniec,stawka, godziny, wyplata, przedmiot_umowy);
+                wnd.setLp(i++);
+
+                output.add(wnd);
+            }
+        } catch (SQLException e) {
+            System.err.println("Blad przy wykonywaniu ladowaniu wynagrodzenia");
+            e.printStackTrace();
+        }
+        return output;
+    }
+
+    public void usunWynagrodzenieDB(int id_prac){
+
+        String sql="DELETE FROM Wynagrodzenia WHERE id_umowa = ?";
+
+        // Delete
+        try {
+            PreparedStatement stmtAdd = conn.prepareStatement(sql);
+
+            stmtAdd.setInt(1,id_prac);
+
+            stmtAdd.execute();
+
+        } catch (SQLException e) {
+            System.err.println("Blad przy [usuwaniu] wynagrodzenia");
+            e.printStackTrace();
+        }
+    }
+
+    // Misc
 
     public void closeConnection(){
         try{

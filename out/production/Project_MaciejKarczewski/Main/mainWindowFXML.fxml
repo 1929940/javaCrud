@@ -118,24 +118,24 @@
                         </TextField>
                      </children>
                   </HBox>
-                  <TableView GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                  <TableView fx:id="Table_Wynagrodzenie" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                      <columns>
-                        <TableColumn maxWidth="30.0" prefWidth="22.0" text="LP" />
-                        <TableColumn prefWidth="125.0" text="Nazwisko" />
-                        <TableColumn prefWidth="95.0" text="Imie" />
-                        <TableColumn prefWidth="100.0" text="Stanowisko" />
-                        <TableColumn prefWidth="68.0" text="Umowa" />
-                        <TableColumn prefWidth="104.0" text="Data Start" />
-                        <TableColumn prefWidth="85.0" text="Data Koniec" />
-                        <TableColumn prefWidth="84.0" text="Stawka Godz" />
-                        <TableColumn text="Ilość Godzin" />
-                        <TableColumn prefWidth="64.0" text="Wypłata" />
-                        <TableColumn prefWidth="153.0" text="Przedmiot Umowy" />
+                        <TableColumn fx:id="tabWynag_LP" maxWidth="30.0" prefWidth="22.0" text="LP" />
+                        <TableColumn fx:id="tabWynag_Nazw" prefWidth="125.0" text="Nazwisko" />
+                        <TableColumn fx:id="tabWynag_Imie" prefWidth="95.0" text="Imie" />
+                        <TableColumn fx:id="tabWynag_Stanowisko" prefWidth="100.0" text="Stanowisko" />
+                        <TableColumn fx:id="tabWynag_Umowa" prefWidth="68.0" text="Umowa" />
+                        <TableColumn fx:id="tabWynag_DataStart" prefWidth="104.0" text="Data_Start" />
+                        <TableColumn fx:id="tabWynag_DataKoniec" prefWidth="85.0" text="Data Koniec" />
+                        <TableColumn fx:id="tabWynag_Stawka" prefWidth="84.0" text="Stawka Godz" />
+                        <TableColumn fx:id="tabWynag_Godz" text="Ilość Godzin" />
+                        <TableColumn fx:id="tabWynag_Wyplata" prefWidth="64.0" text="Wypłata" />
+                        <TableColumn fx:id="tabWynag_Przedmiot" prefWidth="153.0" text="Przedmiot Umowy" />
                      </columns>
                   </TableView>
                   <HBox alignment="TOP_RIGHT" GridPane.rowIndex="2">
                      <children>
-                        <Button mnemonicParsing="false" prefWidth="70.0" text="Dodaj">
+                        <Button mnemonicParsing="false" onAction="#wynagrodzenie_dodaj_click" prefWidth="70.0" text="Dodaj">
                            <HBox.margin>
                               <Insets right="5.0" top="5.0" />
                            </HBox.margin>
@@ -145,7 +145,7 @@
                               <Insets right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button layoutX="930.0" layoutY="10.0" mnemonicParsing="false" prefWidth="70.0" text="Usuń">
+                        <Button layoutX="930.0" layoutY="10.0" mnemonicParsing="false" onAction="#wynagrodzenie_usun_click" prefWidth="70.0" text="Usuń">
                            <HBox.margin>
                               <Insets top="5.0" />
                            </HBox.margin>
@@ -183,14 +183,14 @@
                         </TextField>
                      </children>
                   </HBox>
-                  <TableView GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                  <TableView fx:id="Table_Narzedzia" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                      <columns>
-                        <TableColumn maxWidth="30.0" prefWidth="22.0" text="LP" />
-                        <TableColumn maxWidth="68.00001525878906" prefWidth="68.00001525878906" text="Kod" />
-                        <TableColumn prefWidth="111.99998474121094" text="Nazwa" />
-                        <TableColumn prefWidth="93.0" text="Data Zakupu" />
-                        <TableColumn prefWidth="106.0" text="Data Utylizacji" />
-                        <TableColumn prefWidth="108.0" text="Cena Zakupu" />
+                        <TableColumn fx:id="tabNarz_LP" maxWidth="30.0" prefWidth="22.0" text="LP" />
+                        <TableColumn fx:id="tabNarz_Kod" maxWidth="91.0" prefWidth="76.0" text="Kod" />
+                        <TableColumn fx:id="tabNarz_Nazwa" prefWidth="151.0" text="Nazwa" />
+                        <TableColumn fx:id="tabNarz_DataZak" prefWidth="78.0" text="Data Zakupu" />
+                        <TableColumn fx:id="tabNarz_DataUtyl" prefWidth="92.0" text="Data Utylizacji" />
+                        <TableColumn fx:id="tabNarz_Cena" prefWidth="91.0" text="Cena Zakupu" />
                      </columns>
                   </TableView>
                   <GridPane GridPane.rowIndex="2">
@@ -204,7 +204,7 @@
                      <children>
                         <HBox alignment="TOP_RIGHT" GridPane.columnIndex="1">
                            <children>
-                              <Button mnemonicParsing="false" prefWidth="70.0" text="Dodaj">
+                              <Button mnemonicParsing="false" onAction="#narzedzia_dodaj_click" prefWidth="70.0" text="Dodaj">
                                  <HBox.margin>
                                     <Insets right="5.0" top="5.0" />
                                  </HBox.margin>
@@ -214,7 +214,7 @@
                                     <Insets right="5.0" top="5.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button layoutX="930.0" layoutY="10.0" mnemonicParsing="false" prefWidth="70.0" text="Usuń">
+                              <Button layoutX="930.0" layoutY="10.0" mnemonicParsing="false" onAction="#narzedzia_usun_click" prefWidth="70.0" text="Usuń">
                                  <HBox.margin>
                                     <Insets top="5.0" />
                                  </HBox.margin>
@@ -263,17 +263,18 @@
                         </TextField>
                      </children>
                   </HBox>
-                  <TableView GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                  <TableView fx:id="Table_Wypozyczenia" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                      <columns>
-                        <TableColumn maxWidth="30.0" prefWidth="22.0" text="LP" />
+                        <TableColumn fx:id="tabWyp_Lp" maxWidth="30.0" prefWidth="22.0" text="LP" />
                         <TableColumn maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="C2" />
-                        <TableColumn prefWidth="125.0" text="Nazwisko" />
-                        <TableColumn prefWidth="95.0" text="Imie" />
-                        <TableColumn prefWidth="100.0" text="Stanowisko" />
-                        <TableColumn prefWidth="75.0" text="Nazwa" />
-                        <TableColumn prefWidth="75.0" text="Wartość" />
-                        <TableColumn prefWidth="129.0" text="Data Wypozyczenia" />
-                        <TableColumn prefWidth="94.0" text="Data Zwrotu" />
+                        <TableColumn fx:id="tabWyp_Nazwisko" prefWidth="125.0" text="Nazwisko" />
+                        <TableColumn fx:id="tabWyp_Imie" prefWidth="95.0" text="Imie" />
+                        <TableColumn fx:id="tabWyp_Stanowisko" prefWidth="100.0" text="Stanowisko" />
+                        <TableColumn fx:id="tabWyp_Kod" prefWidth="75.0" text="Kod" />
+                        <TableColumn fx:id="tabWyp_Nazwa" prefWidth="75.0" text="Nazwa" />
+                        <TableColumn fx:id="tabWyp_DataWyp" prefWidth="129.0" text="Data Wypozyczenia" />
+                        <TableColumn fx:id="tabWyp_DataZwrotu" prefWidth="94.0" text="Data Zwrotu" />
+                        <TableColumn fx:id="tabWyp_Wartosc" prefWidth="75.0" text="Wartość" />
                      </columns>
                   </TableView>
                   <GridPane GridPane.rowIndex="2">
@@ -287,7 +288,7 @@
                      <children>
                         <HBox alignment="TOP_RIGHT" GridPane.columnIndex="1">
                            <children>
-                              <Button mnemonicParsing="false" prefWidth="70.0" text="Dodaj">
+                              <Button mnemonicParsing="false" onAction="#wypozyczenia_dodaj_click" prefWidth="70.0" text="Dodaj">
                                  <HBox.margin>
                                     <Insets right="5.0" top="5.0" />
                                  </HBox.margin>
@@ -297,7 +298,7 @@
                                     <Insets right="5.0" top="5.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button layoutX="930.0" layoutY="10.0" mnemonicParsing="false" prefWidth="70.0" text="Usuń">
+                              <Button layoutX="930.0" layoutY="10.0" mnemonicParsing="false" onAction="#wypozyczenia_usun_click" prefWidth="70.0" text="Usuń">
                                  <HBox.margin>
                                     <Insets top="5.0" />
                                  </HBox.margin>

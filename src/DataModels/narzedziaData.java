@@ -8,6 +8,8 @@ public class narzedziaData {
 
     public static narzedziaData containerNarzedzia;
 
+    private final IntegerProperty Id_Narzedzie;
+
     private IntegerProperty Lp;
     private final StringProperty Kod;
     private final StringProperty Nazwa;
@@ -15,21 +17,27 @@ public class narzedziaData {
     private final StringProperty DataUtyl;
     private final DoubleProperty Cena;
 
-    public narzedziaData(String kod, String nazwa, String dataZak, BigDecimal cena) {
+    public narzedziaData(int id, String kod, String nazwa, String dataZak, double cena) {
+
+        Lp = new SimpleIntegerProperty(0);
+        Id_Narzedzie = new SimpleIntegerProperty(id);
         Kod = new SimpleStringProperty(kod);
         Nazwa = new SimpleStringProperty(nazwa);
         DataZak = new SimpleStringProperty(dataZak);
         DataUtyl = new SimpleStringProperty(null); // can this accept null?
-        Cena = new SimpleDoubleProperty(cena.doubleValue());
+        Cena = new SimpleDoubleProperty(cena);
 
     }
 
-    public narzedziaData(String kod, String nazwa, String dataZak, String dataUtyl, BigDecimal cena) {
+    public narzedziaData(int id, String kod, String nazwa, String dataZak, String dataUtyl, double cena) {
+
+        Lp = new SimpleIntegerProperty(0);
+        Id_Narzedzie = new SimpleIntegerProperty(id);
         Kod = new SimpleStringProperty(kod);
         Nazwa = new SimpleStringProperty(nazwa);
         DataZak = new SimpleStringProperty(dataZak);
         DataUtyl = new SimpleStringProperty(dataUtyl);
-        Cena = new SimpleDoubleProperty(cena.doubleValue());
+        Cena = new SimpleDoubleProperty(cena);
     }
 
     @Override
@@ -42,6 +50,18 @@ public class narzedziaData {
                 "\nCena: " + getCena();
 
         return output;
+    }
+
+    public int getId_Narzedzie() {
+        return Id_Narzedzie.get();
+    }
+
+    public IntegerProperty id_NarzedzieProperty() {
+        return Id_Narzedzie;
+    }
+
+    public void setId_Narzedzie(int id_Narzedzie) {
+        this.Id_Narzedzie.set(id_Narzedzie);
     }
 
     public int getLp() {
