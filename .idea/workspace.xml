@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Project_MaciejKarczewski:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Figured DB for Pracownicy Tab">
-      <change beforePath="$PROJECT_DIR$/MK_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/MK_database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataModels/dropBoxNarzedzia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/dropBoxNarzedzia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataModels/dropBoxPracownik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/dropBoxPracownik.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataModels/narzedziaData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/narzedziaData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataModels/pracownikData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/pracownikData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataModels/wynagrodzenieData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/wynagrodzenieData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Windows/dodajNarzedzia/dodajNarzedziaFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Windows/dodajNarzedzia/dodajNarzedziaFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Windows/dodajPracownika/dodajPracownikaFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Windows/dodajPracownika/dodajPracownikaFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Windows/dodajWynagrodzenie/dodajWynagrodzenieFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Windows/dodajWynagrodzenie/dodajWynagrodzenieFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Windows/dodajWypozyczenie/dodajWypozyczenieFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Windows/dodajWypozyczenie/dodajWypozyczenieFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Windows/modyfikujNarzedzia/modyfikujNardzedziaFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Windows/modyfikujNarzedzia/modyfikujNardzedziaFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Windows/modyfikujPracownika/modyfikujPracownikaFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Windows/modyfikujPracownika/modyfikujPracownikaFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Windows/modyfikujWynagrodzenie/modyfikujWynagrodzenieFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Windows/modyfikujWynagrodzenie/modyfikujWynagrodzenieFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Windows/modyfikujWypozyczenie/modyfikujWypozyczenieFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project_MaciejKarczewski/Main/Windows/modyfikujWypozyczenie/modyfikujWypozyczenieFXML.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Windows/dodajNarzedzia/dodajNarzedziaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Windows/dodajNarzedzia/dodajNarzedziaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Windows/dodajNarzedzia/dodajNarzedziaFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Windows/dodajNarzedzia/dodajNarzedziaFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Windows/dodajPracownika/dodajPracownikaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Windows/dodajPracownika/dodajPracownikaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Windows/dodajPracownika/dodajPracownikaFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Windows/dodajPracownika/dodajPracownikaFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Windows/dodajWynagrodzenie/dodajWynagrodzenieFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Windows/dodajWynagrodzenie/dodajWynagrodzenieFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Windows/dodajWypozyczenie/dodajWypozyczenieFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Windows/dodajWypozyczenie/dodajWypozyczenieFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Windows/modyfikujNarzedzia/modyfikujNardzedziaFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Windows/modyfikujNarzedzia/modyfikujNardzedziaFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Windows/modyfikujPracownika/modyfikujPracownikaFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Windows/modyfikujPracownika/modyfikujPracownikaFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Windows/modyfikujWynagrodzenie/modyfikujWynagrodzenieFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Windows/modyfikujWynagrodzenie/modyfikujWynagrodzenieFXML.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Windows/modyfikujWypozyczenie/modyfikujWypozyczenieFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Windows/modyfikujWypozyczenie/modyfikujWypozyczenieFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/mainWindowFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/mainWindowFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dbUtilities/DBconnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dbUtilities/DBconnection.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,120 +78,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dbUtilities/DBconnection.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Main/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10523">
-              <caret line="775" column="58" selection-start-line="775" selection-start-column="58" selection-end-line="775" selection-end-column="58" />
+            <state relative-caret-position="304">
+              <caret line="664" column="51" selection-start-line="664" selection-start-column="51" selection-end-line="664" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#znajdzPracownikaDB#0;class#DBconnection#0" />
-                <element signature="method#usunPracownikaDB#0;class#DBconnection#0" />
-                <element signature="method#modyfikujPracownikaDB#0;class#DBconnection#0" />
-                <element signature="method#modyfikujNarzedzieDB#0;class#DBconnection#0" />
-                <element signature="method#dodajWypozyczenieDB#0;class#DBconnection#0" />
-                <element signature="method#usunWypozyczenieDB#0;class#DBconnection#0" />
-                <element signature="method#modyfikujWypozyczenieDB#0;class#DBconnection#0" />
-                <element signature="method#dodajWynagrodzenieDB#0;class#DBconnection#0" />
-                <element signature="method#usunWynagrodzenieDB#0;class#DBconnection#0" />
-                <element signature="method#modyfikujWynagrodzenieDB#0;class#DBconnection#0" />
-                <element signature="method#generujNrUmowy#0;class#DBconnection#0" />
+                <element signature="e#2287#3064#0" />
+                <element signature="e#4554#5737#0" />
+                <element signature="e#6718#7844#0" />
+                <element signature="e#7850#8944#0" />
+                <element signature="e#11859#12529#0" />
+                <element signature="e#12535#13648#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajNarzedzia/dodajNarzedziaFXML.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajPracownika/dodajPracownikaFXML.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
           <provider editor-type-id="text-editor">
             <state relative-caret-position="340">
               <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajWynagrodzenie/dodajWynagrodzenieFXML.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajWypozyczenie/dodajWypozyczenieFXML.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/Windows/modyfikujNarzedzia/modyfikujNarzedziaController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="46" selection-start-line="46" selection-end-line="49" selection-end-column="91" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#CloseWindow#0;class#modyfikujNarzedziaController#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/Windows/modyfikujNarzedzia/modyfikujNardzedziaFXML.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="25" column="74" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/Windows/modyfikujPracownika/modyfikujPracownikaFXML.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/Windows/modyfikujWynagrodzenie/modyfikujWynagrodzenieFXML.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Main/Windows/modyfikujWypozyczenie/modyfikujWypozyczenieFXML.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="60" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
     </leaf>
@@ -254,7 +164,6 @@
         <option value="$PROJECT_DIR$/src/Main/Windows/modyfikujNarzedzia/modyfikujNarzedziaController.java" />
         <option value="$PROJECT_DIR$/src/Main/mainWindowFXML.fxml" />
         <option value="$PROJECT_DIR$/src/dbUtilities/DBconnection.java" />
-        <option value="$PROJECT_DIR$/src/Main/Controller.java" />
         <option value="$PROJECT_DIR$/src/DataModels/dropBoxNarzedzia.java" />
         <option value="$PROJECT_DIR$/src/DataModels/dropBoxPracownik.java" />
         <option value="$PROJECT_DIR$/src/DataModels/narzedziaData.java" />
@@ -263,13 +172,14 @@
         <option value="$PROJECT_DIR$/src/Main/Windows/dodajNarzedzia/dodajNarzedziaController.java" />
         <option value="$PROJECT_DIR$/src/Main/Windows/dodajPracownika/dodajPracownikaController.java" />
         <option value="$PROJECT_DIR$/src/Main/Windows/dodajNarzedzia/dodajNarzedziaFXML.fxml" />
-        <option value="$PROJECT_DIR$/src/Main/Windows/dodajPracownika/dodajPracownikaFXML.fxml" />
         <option value="$PROJECT_DIR$/src/Main/Windows/dodajWynagrodzenie/dodajWynagrodzenieFXML.fxml" />
         <option value="$PROJECT_DIR$/src/Main/Windows/dodajWypozyczenie/dodajWypozyczenieFXML.fxml" />
         <option value="$PROJECT_DIR$/src/Main/Windows/modyfikujNarzedzia/modyfikujNardzedziaFXML.fxml" />
         <option value="$PROJECT_DIR$/src/Main/Windows/modyfikujPracownika/modyfikujPracownikaFXML.fxml" />
         <option value="$PROJECT_DIR$/src/Main/Windows/modyfikujWynagrodzenie/modyfikujWynagrodzenieFXML.fxml" />
         <option value="$PROJECT_DIR$/src/Main/Windows/modyfikujWypozyczenie/modyfikujWypozyczenieFXML.fxml" />
+        <option value="$PROJECT_DIR$/src/Main/Windows/dodajPracownika/dodajPracownikaFXML.fxml" />
+        <option value="$PROJECT_DIR$/src/Main/Controller.java" />
       </list>
     </option>
   </component>
@@ -289,7 +199,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -301,26 +210,24 @@
             <path>
               <item name="Project_MaciejKarczewski" type="b2602c69:ProjectViewProjectNode" />
               <item name="Project_MaciejKarczewski" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Project_MaciejKarczewski" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_MaciejKarczewski" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Project_MaciejKarczewski" type="b2602c69:ProjectViewProjectNode" />
               <item name="Project_MaciejKarczewski" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dbUtilities" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Project_MaciejKarczewski" type="b2602c69:ProjectViewProjectNode" />
               <item name="Project_MaciejKarczewski" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project_MaciejKarczewski" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project_MaciejKarczewski" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-              <item name="Windows" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Project_MaciejKarczewski" type="b2602c69:ProjectViewProjectNode" />
@@ -328,7 +235,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Main" type="462c0819:PsiDirectoryNode" />
               <item name="Windows" type="462c0819:PsiDirectoryNode" />
-              <item name="dodajNarzedzia" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Project_MaciejKarczewski" type="b2602c69:ProjectViewProjectNode" />
@@ -340,60 +246,13 @@
             </path>
             <path>
               <item name="Project_MaciejKarczewski" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project_MaciejKarczewski" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-              <item name="Windows" type="462c0819:PsiDirectoryNode" />
-              <item name="dodajWynagrodzenie" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project_MaciejKarczewski" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project_MaciejKarczewski" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-              <item name="Windows" type="462c0819:PsiDirectoryNode" />
-              <item name="dodajWypozyczenie" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project_MaciejKarczewski" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project_MaciejKarczewski" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-              <item name="Windows" type="462c0819:PsiDirectoryNode" />
-              <item name="modyfikujNarzedzia" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project_MaciejKarczewski" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project_MaciejKarczewski" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-              <item name="Windows" type="462c0819:PsiDirectoryNode" />
-              <item name="modyfikujPracownika" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project_MaciejKarczewski" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project_MaciejKarczewski" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-              <item name="Windows" type="462c0819:PsiDirectoryNode" />
-              <item name="modyfikujWynagrodzenie" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project_MaciejKarczewski" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project_MaciejKarczewski" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-              <item name="Windows" type="462c0819:PsiDirectoryNode" />
-              <item name="modyfikujWypozyczenie" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project_MaciejKarczewski" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -408,7 +267,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/sqlite-jdbc-3.7.2.jar!/" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -541,7 +400,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="784" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.337386" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.3480243" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -770,27 +629,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/mainWindowFXML.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="189" selection-start-line="13" selection-start-column="189" selection-end-line="13" selection-end-column="189" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DataModels/dropBoxNarzedzia.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="41" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -863,10 +712,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajWypozyczenie/dodajWypozyczenieFXML.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajWynagrodzenie/dodajWynagrodzenieFXML.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajNarzedzia/dodajNarzedziaFXML.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/dbUtilities/DBconnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10523">
-          <caret line="775" column="58" selection-start-line="775" selection-start-column="58" selection-end-line="775" selection-end-column="58" />
+        <state relative-caret-position="569">
+          <caret line="775" column="58" lean-forward="true" selection-start-line="775" selection-start-column="58" selection-end-line="775" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#znajdzPracownikaDB#0;class#DBconnection#0" />
@@ -884,41 +757,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajNarzedzia/dodajNarzedziaFXML.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajPracownika/dodajPracownikaFXML.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajWynagrodzenie/dodajWynagrodzenieFXML.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajWypozyczenie/dodajWypozyczenieFXML.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/Windows/modyfikujNarzedzia/modyfikujNarzedziaController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="527">
           <caret line="46" selection-start-line="46" selection-end-line="49" selection-end-column="91" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -928,36 +769,60 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/Windows/modyfikujNarzedzia/modyfikujNardzedziaFXML.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="417">
+        <state relative-caret-position="425">
           <caret line="25" column="74" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/Windows/modyfikujPracownika/modyfikujPracownikaFXML.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/Windows/modyfikujWynagrodzenie/modyfikujWynagrodzenieFXML.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="111">
+        <state relative-caret-position="187">
           <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/Windows/modyfikujWypozyczenie/modyfikujWypozyczenieFXML.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="60" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Windows/dodajPracownika/dodajPracownikaFXML.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="664" column="51" selection-start-line="664" selection-start-column="51" selection-end-line="664" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2287#3064#0" />
+            <element signature="e#4554#5737#0" />
+            <element signature="e#6718#7844#0" />
+            <element signature="e#7850#8944#0" />
+            <element signature="e#11859#12529#0" />
+            <element signature="e#12535#13648#0" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
@@ -965,10 +830,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>Project_MaciejKarczewski:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1014,7 +881,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

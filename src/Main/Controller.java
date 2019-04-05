@@ -67,7 +67,10 @@ public class Controller implements Initializable {
             Scene scene = new Scene(gui);
 
             popUp.setScene(scene);
-            popUp.setResizable(false);
+            popUp.setResizable(true);
+            popUp.maxHeightProperty().setValue(350);
+            popUp.maxWidthProperty().setValue(200);
+            popUp.minWidthProperty().setValue(150);
             popUp.initStyle(StageStyle.UTILITY);
             popUp.initModality(Modality.APPLICATION_MODAL);
 
@@ -128,7 +131,10 @@ public class Controller implements Initializable {
             Scene scene = new Scene(gui);
 
             popUp.setScene(scene);
-            popUp.setResizable(false);
+            popUp.setResizable(true);
+            popUp.maxHeightProperty().setValue(350);
+            popUp.maxWidthProperty().setValue(200);
+            popUp.minWidthProperty().setValue(150);
             popUp.initStyle(StageStyle.UTILITY);
             popUp.initModality(Modality.APPLICATION_MODAL);
 
@@ -283,7 +289,10 @@ public class Controller implements Initializable {
             Scene scene = new Scene(gui);
 
             popUp.setScene(scene);
-            popUp.setResizable(false);
+            popUp.setResizable(true);
+            popUp.maxHeightProperty().setValue(550);
+            popUp.maxWidthProperty().setValue(200);
+            popUp.minWidthProperty().setValue(150);
             popUp.initStyle(StageStyle.UTILITY);
             popUp.initModality(Modality.APPLICATION_MODAL);
 
@@ -329,7 +338,10 @@ public class Controller implements Initializable {
             Scene scene = new Scene(gui);
 
             popUp.setScene(scene);
-            popUp.setResizable(false);
+            popUp.setResizable(true);
+            popUp.maxHeightProperty().setValue(550);
+            popUp.maxWidthProperty().setValue(200);
+            popUp.minWidthProperty().setValue(150);
             popUp.initStyle(StageStyle.UTILITY);
             popUp.initModality(Modality.APPLICATION_MODAL);
 
@@ -430,7 +442,10 @@ public class Controller implements Initializable {
             Scene scene = new Scene(gui);
 
             popUp.setScene(scene);
-            popUp.setResizable(false);
+            popUp.setResizable(true);
+            popUp.maxHeightProperty().setValue(350);
+            popUp.maxWidthProperty().setValue(200);
+            popUp.minWidthProperty().setValue(150);
             popUp.initStyle(StageStyle.UTILITY);
             popUp.initModality(Modality.APPLICATION_MODAL);
 
@@ -477,7 +492,10 @@ public class Controller implements Initializable {
             Scene scene = new Scene(gui);
 
             popUp.setScene(scene);
-            popUp.setResizable(false);
+            popUp.setResizable(true);
+            popUp.maxHeightProperty().setValue(350);
+            popUp.maxWidthProperty().setValue(200);
+            popUp.minWidthProperty().setValue(150);
             popUp.initStyle(StageStyle.UTILITY);
             popUp.initModality(Modality.APPLICATION_MODAL);
 
@@ -592,7 +610,10 @@ public class Controller implements Initializable {
             Scene scene = new Scene(gui);
 
             popUp.setScene(scene);
-            popUp.setResizable(false);
+            popUp.setResizable(true);
+            popUp.maxHeightProperty().setValue(350);
+            popUp.maxWidthProperty().setValue(200);
+            popUp.minWidthProperty().setValue(150);
             popUp.initStyle(StageStyle.UTILITY);
             popUp.initModality(Modality.APPLICATION_MODAL);
 
@@ -638,7 +659,10 @@ public class Controller implements Initializable {
             Scene scene = new Scene(gui);
 
             popUp.setScene(scene);
-            popUp.setResizable(false);
+            popUp.setResizable(true);
+            popUp.maxHeightProperty().setValue(350);
+            popUp.maxWidthProperty().setValue(200);
+            popUp.minWidthProperty().setValue(150);
             popUp.initStyle(StageStyle.UTILITY);
             popUp.initModality(Modality.APPLICATION_MODAL);
 
