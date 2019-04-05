@@ -66,12 +66,6 @@ public class Controller implements Initializable {
             FXMLLoader loader = new FXMLLoader();
             Parent gui = loader.load(getClass().getResource("/Main/Windows/dodajPracownika/dodajPracownikaFXML.fxml"));
 
-
-            // Dont think the following line is nessesary
-
-            //dodajPracownikaController dodajPracownika_ctrl = (dodajPracownikaController) loader.getController();
-            //Parent gui = (Parent)loader.load(getClass().getResource("/Main/Windows/dodajPracownika/dodajPracownikaFXML.fxml"));
-
             Scene scene = new Scene(gui);
 
             popUp.setScene(scene);
@@ -135,12 +129,6 @@ public class Controller implements Initializable {
 
             FXMLLoader loader = new FXMLLoader();
             Parent gui = loader.load(getClass().getResource("/Main/Windows/modyfikujPracownika/modyfikujPracownikaFXML.fxml"));
-
-
-            // Dont think the following line is nessesary
-
-            modyfikujPracownikaController modyfukujPracownika_ctrl = (modyfikujPracownikaController) loader.getController();
-            //Parent gui = (Parent)loader.load(getClass().getResource("/Main/Windows/dodajPracownika/dodajPracownikaFXML.fxml"));
 
             Scene scene = new Scene(gui);
 
@@ -332,6 +320,58 @@ public class Controller implements Initializable {
 
     }
 
+    public void wynagrodzenie_modyfikuj_click(ActionEvent event){
+
+        try{
+            ObservableList<wynagrodzenieData> selectedData;
+
+            selectedData = Table_Wynagrodzenie.getSelectionModel().getSelectedItems();
+
+            if (selectedData.get(0) == null){
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Błąd: Nie wybrano wiersza");
+                alert.setHeaderText(null);
+                alert.setContentText("Bład: Wybierz wiersz, potem ponownie kliknij na przycisk modyfikuj");
+                alert.showAndWait();
+
+
+                return;
+            }
+            
+            wynagrodzenieData.container = selectedData.get(0);
+
+            Stage popUp = new Stage();
+
+            FXMLLoader loader = new FXMLLoader();
+            Parent gui = loader.load(getClass().getResource("/Main/Windows/modyfikujWynagrodzenie/modyfikujWynagrodzenieFXML.fxml"));
+
+            Scene scene = new Scene(gui);
+
+            popUp.setScene(scene);
+            popUp.setResizable(false);
+            popUp.initStyle(StageStyle.UTILITY);
+            popUp.initModality(Modality.APPLICATION_MODAL);
+
+            popUp.show();
+
+
+
+            popUp.setOnCloseRequest(new EventHandler<WindowEvent>(){
+                @Override
+                public void handle(WindowEvent paramT){
+                    wynagrodzenie_zaladuj();
+                }
+            });
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+
+
+    }
+
     // TAB: Spis Narzedzi
 
     @FXML
@@ -433,6 +473,55 @@ public class Controller implements Initializable {
         catch (IOException e){
             e.printStackTrace();
         }
+
+
+    }
+
+    public void narzedzia_modyfikuj_click(ActionEvent event){
+
+        try{
+            ObservableList<narzedziaData> selectedData;
+
+            selectedData = Table_Narzedzia.getSelectionModel().getSelectedItems();
+
+            if (selectedData.get(0) == null){
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Błąd: Nie wybrano wiersza");
+                alert.setHeaderText(null);
+                alert.setContentText("Bład: Wybierz wiersz, potem ponownie kliknij na przycisk modyfikuj");
+                alert.showAndWait();
+
+
+                return;
+            }
+
+            narzedziaData.container = selectedData.get(0);
+
+            Stage popUp = new Stage();
+
+            FXMLLoader loader = new FXMLLoader();
+            Parent gui = loader.load(getClass().getResource("/Main/Windows/modyfikujNarzedzia/modyfikujNardzedziaFXML.fxml"));
+            Scene scene = new Scene(gui);
+
+            popUp.setScene(scene);
+            popUp.setResizable(false);
+            popUp.initStyle(StageStyle.UTILITY);
+            popUp.initModality(Modality.APPLICATION_MODAL);
+
+            popUp.show();
+
+            popUp.setOnCloseRequest(new EventHandler<WindowEvent>(){
+                @Override
+                public void handle(WindowEvent paramT){
+                    narzedzia_zaladuj();
+                }
+            });
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
 
 
     }
@@ -553,6 +642,56 @@ public class Controller implements Initializable {
 
     }
 
+    public void wypozyczenia_modyfikuj_click(ActionEvent event){
+
+        try{
+            ObservableList<wypozyczeniaData> selectedData;
+
+            selectedData = Table_Wypozyczenia.getSelectionModel().getSelectedItems();
+
+            if (selectedData.get(0) == null){
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Błąd: Nie wybrano wiersza");
+                alert.setHeaderText(null);
+                alert.setContentText("Bład: Wybierz wiersz, potem ponownie kliknij na przycisk modyfikuj");
+                alert.showAndWait();
+
+
+                return;
+            }
+
+            wypozyczeniaData.container = selectedData.get(0);
+
+            Stage popUp = new Stage();
+
+            FXMLLoader loader = new FXMLLoader();
+            Parent gui = loader.load(getClass().getResource("/Main/Windows/modyfikujWypozyczenie/modyfikujWypozyczenieFXML.fxml"));
+
+            Scene scene = new Scene(gui);
+
+            popUp.setScene(scene);
+            popUp.setResizable(false);
+            popUp.initStyle(StageStyle.UTILITY);
+            popUp.initModality(Modality.APPLICATION_MODAL);
+
+            popUp.show();
+
+            popUp.setOnCloseRequest(new EventHandler<WindowEvent>(){
+                @Override
+                public void handle(WindowEvent paramT){
+                    wypozyczenia_zaladuj();
+                }
+            });
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+
+
+    }
+
     // Other
 
     // Perhaps unnessesary
@@ -579,7 +718,6 @@ public class Controller implements Initializable {
         if(dBconnection.IsSeedWypozyczenia()){
             dBconnection.SeedWypozyczenia();
         }
-
 
         dBconnection.closeConnection();
 

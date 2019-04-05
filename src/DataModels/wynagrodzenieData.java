@@ -2,11 +2,9 @@ package DataModels;
 
 import javafx.beans.property.*;
 
-import java.math.BigDecimal;
-
 public class wynagrodzenieData {
 
-    public static wynagrodzenieData containerWynagrodzenie;
+    public static wynagrodzenieData container;
 
     private final IntegerProperty Id_umowa;
     private final IntegerProperty Id_pracownik;
@@ -23,7 +21,49 @@ public class wynagrodzenieData {
     private final DoubleProperty Wyplata;
     private final StringProperty Przedmiot;
 
+    // Use for dodaj gui
+    public wynagrodzenieData(int id_pracownik, String umowa, String dataStart, String dataKoniec, double stawka, double liczbaGodzin, String przedmiot) {
+
+        Lp = new SimpleIntegerProperty(0);
+
+        Id_umowa = new SimpleIntegerProperty(777); // this doesnt matter since DB sets the number
+        Id_pracownik = new SimpleIntegerProperty(id_pracownik);
+
+        Nazwisko = new SimpleStringProperty(null);
+        Imie = new SimpleStringProperty(null);
+        Stanowisko = new SimpleStringProperty(null);
+        Umowa = new SimpleStringProperty(umowa);
+        DataStart = new SimpleStringProperty(dataStart);
+        DataKoniec = new SimpleStringProperty(dataKoniec);
+        Stawka = new SimpleDoubleProperty(stawka);
+        LiczbaGodzin = new SimpleDoubleProperty(liczbaGodzin);
+        Wyplata = new SimpleDoubleProperty(stawka * liczbaGodzin);
+        Przedmiot = new SimpleStringProperty(przedmiot);
+    }
+
+    // Use for modify Gui
+    public wynagrodzenieData(int id_pracownik, int id_umowa, String umowa, String dataStart, String dataKoniec, double stawka, double liczbaGodzin, double wyplata, String przedmiot) {
+
+        Lp = new SimpleIntegerProperty(0);
+
+        Id_umowa = new SimpleIntegerProperty(id_umowa); // this doesnt matter since DB sets the number
+        Id_pracownik = new SimpleIntegerProperty(id_pracownik);
+
+        Nazwisko = new SimpleStringProperty(null);
+        Imie = new SimpleStringProperty(null);
+        Stanowisko = new SimpleStringProperty(null);
+        Umowa = new SimpleStringProperty(umowa);
+        DataStart = new SimpleStringProperty(dataStart);
+        DataKoniec = new SimpleStringProperty(dataKoniec);
+        Stawka = new SimpleDoubleProperty(stawka);
+        LiczbaGodzin = new SimpleDoubleProperty(liczbaGodzin);
+        Wyplata = new SimpleDoubleProperty(stawka * liczbaGodzin);
+        Przedmiot = new SimpleStringProperty(przedmiot);
+    }
+
+
     // Use for creating new objects
+    // Is this ever used?
     public wynagrodzenieData(int id_umowa, int id_pracownik, String nazwisko, String imie, String stanowisko, String umowa, String dataStart, double stawka, double liczbaGodzin, String przedmiot) {
 
         Lp = new SimpleIntegerProperty(0);
@@ -74,7 +114,7 @@ public class wynagrodzenieData {
                 "\nData Koniec: " + getDataKoniec() +
                 "\nStawka: " + getStawka() +
                 "\nLiczba Godzin: " + getLiczbaGodzin() +
-                "\nWyplata: " + getLiczbaGodzin() +
+                "\nWyplata: " + getWyplata() +
                 "\nPrzedmiot: " + getPrzedmiot();
 
         return output;

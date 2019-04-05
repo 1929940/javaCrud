@@ -1,9 +1,6 @@
 package dbUtilities;
 
-import DataModels.narzedziaData;
-import DataModels.pracownikData;
-import DataModels.wynagrodzenieData;
-import DataModels.wypozyczeniaData;
+import DataModels.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -350,6 +347,8 @@ public class DBconnection {
 
         ObservableList<pracownikData> output = FXCollections.observableArrayList();
 
+        dropBoxPracownik.containerList.clear();
+
         int i = 1;
 
         //Find Data
@@ -357,8 +356,10 @@ public class DBconnection {
         try {
             ResultSet result = stmt.executeQuery("SELECT * FROM Pracownik");
             String nazwisko, imie, narodowosc, stanowisko, data_zatr, data_wyp;
+            int id;
 
             while(result.next()) {
+                id = result.getInt("id_pracownik");
                 nazwisko = result.getString("nazwisko");
                 imie = result.getString("imie");
                 narodowosc = result.getString("narodowosc");
@@ -368,6 +369,8 @@ public class DBconnection {
 
                 pracownikData pd = new pracownikData(nazwisko, imie, narodowosc, stanowisko, data_zatr, data_wyp);
                 pd.setLp(i++);
+
+                dropBoxPracownik.containerList.add(new dropBoxPracownik(id,nazwisko,imie));
 
                 output.add(pd);
             }
@@ -497,6 +500,8 @@ public class DBconnection {
 
         ObservableList<narzedziaData> output = FXCollections.observableArrayList();
 
+        dropBoxNarzedzia.containerList.clear();
+
         int i = 1;
 
         //Find Data
@@ -519,6 +524,8 @@ public class DBconnection {
                 narzedziaData nd = new narzedziaData(id_narzedzia, kod, nazwa, data_zakupu, data_utylizacji, cena);
                 nd.setLp(i++);
 
+                dropBoxNarzedzia.containerList.add(new dropBoxNarzedzia(id_narzedzia, nazwa, kod));
+
                 output.add(nd);
             }
         } catch (SQLException e) {
@@ -526,6 +533,32 @@ public class DBconnection {
             e.printStackTrace();
         }
         return output;
+    }
+
+    public void dodajNarzedzieDB(narzedziaData nd){
+
+        // Add
+
+        String sql="INSERT INTO Narzedzia(nazwa, kod, data_zakupu, data_utylizacji, cena) " +
+                "VALUES (?, ?, ?, ?, ?);";
+        try {
+            PreparedStatement stmtAdd = conn.prepareStatement(sql);
+
+            stmtAdd.setString(1,nd.getNazwa());
+            stmtAdd.setString(2,nd.getKod());
+            stmtAdd.setString(3,nd.getDataZak());
+            stmtAdd.setString(4,nd.getDataUtyl());
+            stmtAdd.setDouble(5,nd.getCena());
+
+            stmtAdd.execute();
+
+            // my own
+        } catch (SQLException e) {
+            System.err.println("Blad przy dodawaniu Narzedzia");
+            e.printStackTrace();
+        }
+
+        // Close
     }
 
     public void usunNarzedzieDB(int id_prac){
@@ -542,6 +575,30 @@ public class DBconnection {
 
         } catch (SQLException e) {
             System.err.println("Blad przy [usuwaniu] narzedzia");
+            e.printStackTrace();
+        }
+    }
+
+    public void modyfikujNarzedzieDB(narzedziaData nd){
+
+
+        String sql = "UPDATE Narzedzia SET nazwa = ?, kod = ?, data_zakupu = ?, data_utylizacji = ?, cena = ? WHERE id_narzedzia = ?";
+
+        try {
+            PreparedStatement stmtAdd = conn.prepareStatement(sql);
+
+            stmtAdd.setString(1,nd.getNazwa());
+            stmtAdd.setString(2,nd.getKod());
+            stmtAdd.setString(3,nd.getDataZak());
+            stmtAdd.setString(4,nd.getDataUtyl());
+            stmtAdd.setDouble(5,nd.getCena());
+            stmtAdd.setInt(6,nd.getId_Narzedzie());
+
+            stmtAdd.execute();
+
+            // my own
+        } catch (SQLException e) {
+            System.err.println("Blad przy [edytowaniu] narzedzia");
             e.printStackTrace();
         }
     }
@@ -603,6 +660,31 @@ public class DBconnection {
         return output;
     }
 
+    public void dodajWypozyczenieDB(wypozyczeniaData wd){
+
+        // Add
+
+        String sql="INSERT INTO Wypozyczenia(id_narzedzia, id_pracownik, data_wyp, data_zwrot) " +
+                "VALUES (?, ?, ?, ?);";
+        try {
+            PreparedStatement stmtAdd = conn.prepareStatement(sql);
+
+            stmtAdd.setInt(1,wd.getId_narzedzia());
+            stmtAdd.setInt(2,wd.getId_pracownik());
+            stmtAdd.setString(3,wd.getDataWyp());
+            stmtAdd.setString(4,wd.getDataZwrotu());
+
+            stmtAdd.execute();
+
+            // my own
+        } catch (SQLException e) {
+            System.err.println("Blad przy dodawaniu Wypozyczenia");
+            e.printStackTrace();
+        }
+
+        // Close
+    }
+
     public void usunWypozyczenieDB(int id_prac){
 
         String sql="DELETE FROM Wypozyczenia WHERE id_wypozyczenia = ?";
@@ -617,6 +699,35 @@ public class DBconnection {
 
         } catch (SQLException e) {
             System.err.println("Blad przy [usuwaniu] wypozyczenia");
+            e.printStackTrace();
+        }
+    }
+
+    public void modyfikujWypozyczenieDB(wypozyczeniaData wd){
+
+
+        String sql = "UPDATE Wypozyczenia " +
+                "SET id_narzedzia = ?," +
+                "id_pracownik = ?," +
+                "data_wyp = ?," +
+                "data_zwrot = ?" +
+                "WHERE id_wypozyczenia = ?";
+
+        try {
+            PreparedStatement stmtAdd = conn.prepareStatement(sql);
+
+            stmtAdd.setInt(1,wd.getId_narzedzia());
+            stmtAdd.setInt(2,wd.getId_pracownik());
+            stmtAdd.setString(3,wd.getDataWyp());
+            stmtAdd.setString(4,wd.getDataZwrotu());
+            stmtAdd.setInt(5,wd.getId_wypozyczenia());
+
+
+            stmtAdd.execute();
+
+            // my own
+        } catch (SQLException e) {
+            System.err.println("Blad przy [edytowaniu] wypozyczenia");
             e.printStackTrace();
         }
     }
@@ -679,6 +790,33 @@ public class DBconnection {
         return output;
     }
 
+    public void dodajWynagrodzenieDB(wynagrodzenieData wd){
+
+        // Add
+
+        String sql="INSERT INTO Wynagrodzenia(id_pracownik, umowa, data_start, data_koniec, stawka_godzinowa, godziny, wyplata, przedmiot_umowy) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+        try {
+            PreparedStatement stmtAdd = conn.prepareStatement(sql);
+
+            stmtAdd.setInt(1,wd.getId_pracownik());
+            stmtAdd.setString(2,wd.getUmowa());
+            stmtAdd.setString(3,wd.getDataStart());
+            stmtAdd.setString(4,wd.getDataKoniec());
+            stmtAdd.setDouble(5,wd.getStawka());
+            stmtAdd.setDouble(6,wd.getLiczbaGodzin());
+            stmtAdd.setDouble(7,wd.getWyplata()); // Decimal from DB gets transformed into Double
+            stmtAdd.setString(8,wd.getPrzedmiot());
+
+            stmtAdd.execute();
+
+            // my own
+        } catch (SQLException e) {
+            System.err.println("Blad przy dodawaniu Wynagrodzenia");
+            e.printStackTrace();
+        }
+    }
+
     public void usunWynagrodzenieDB(int id_prac){
 
         String sql="DELETE FROM Wynagrodzenia WHERE id_umowa = ?";
@@ -695,6 +833,72 @@ public class DBconnection {
             System.err.println("Blad przy [usuwaniu] wynagrodzenia");
             e.printStackTrace();
         }
+    }
+
+    public void modyfikujWynagrodzenieDB(wynagrodzenieData wd){
+
+
+        String sql = "UPDATE Wynagrodzenia " +
+                "SET id_pracownik = ?," +
+                "umowa = ?," +
+                "data_start = ?," +
+                "data_koniec = ?," +
+                "stawka_godzinowa = ?,"+
+                "godziny = ?,"+
+                "wyplata = ?,"+
+                "przedmiot_umowy = ?"+
+                "WHERE id_umowa = ?";
+
+        try {
+            PreparedStatement stmtAdd = conn.prepareStatement(sql);
+
+            stmtAdd.setInt(1,wd.getId_pracownik());
+            stmtAdd.setString(2,wd.getUmowa());
+            stmtAdd.setString(3,wd.getDataStart());
+            stmtAdd.setString(4,wd.getDataKoniec());
+            stmtAdd.setDouble(5,wd.getStawka());
+            stmtAdd.setDouble(6,wd.getLiczbaGodzin());
+            stmtAdd.setDouble(7,wd.getWyplata()); // Decimal from DB gets transformed into Double
+            stmtAdd.setString(8,wd.getPrzedmiot());
+            stmtAdd.setInt(9,wd.getId_umowa());
+
+
+            stmtAdd.execute();
+
+            // my own
+        } catch (SQLException e) {
+            System.err.println("Blad przy [edytowaniu] wynagrodzenia");
+            e.printStackTrace();
+        }
+    }
+
+    public String generujNrUmowy(String rok, String miesiac){
+        String output;
+        String numer = "00";
+
+        String sql = "SELECT COUNT(umowa) AS umowy FROM Wynagrodzenia WHERE umowa LIKE ('"+rok+"/"+miesiac+"/__');";
+
+        try {
+            PreparedStatement stmtAdd = conn.prepareStatement(sql);
+
+            ResultSet result = stmtAdd.executeQuery();
+
+            numer = result.getString("umowy");
+
+            int tmp = Integer.valueOf(numer);
+            tmp = tmp +1;
+            numer = String.valueOf(tmp);
+
+            if (numer.length() == 1){
+                numer = "0" + numer;
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Blad przy generowaniu numeru umowy");
+            e.printStackTrace();
+        }
+
+        return output = rok + "/" + miesiac + "/" + numer;
     }
 
     // Misc

@@ -1,6 +1,11 @@
 package DataModels;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class dropBoxNarzedzia {
+
+    public static ObservableList<dropBoxNarzedzia> containerList = FXCollections.observableArrayList();
 
     private final int id_narzedzia;
     private final String nazwa;

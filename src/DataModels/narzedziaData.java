@@ -2,11 +2,9 @@ package DataModels;
 
 import javafx.beans.property.*;
 
-import java.math.BigDecimal;
-
 public class narzedziaData {
 
-    public static narzedziaData containerNarzedzia;
+    public static narzedziaData container;
 
     private final IntegerProperty Id_Narzedzie;
 

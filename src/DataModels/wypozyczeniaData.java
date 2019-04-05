@@ -2,9 +2,10 @@ package DataModels;
 
 import javafx.beans.property.*;
 
-import java.math.BigDecimal;
 
 public class wypozyczeniaData {
+
+    public static wypozyczeniaData container;
 
     private final IntegerProperty Id_wypozyczenia;
     private final IntegerProperty Id_narzedzia;
@@ -20,6 +21,42 @@ public class wypozyczeniaData {
     private final StringProperty DataZwrotu;
     private final DoubleProperty Cena;
 
+    // Used to add
+    public wypozyczeniaData(int id_pracownik, int id_narzedzia, String dataWyp){
+
+        Lp = new SimpleIntegerProperty(0);
+
+        Id_wypozyczenia = new SimpleIntegerProperty(777); // irrelevant DB will set it
+        Id_narzedzia = new SimpleIntegerProperty(id_narzedzia);
+        Id_pracownik = new SimpleIntegerProperty(id_pracownik);
+        Nazwisko = new SimpleStringProperty(null);
+        Imie = new SimpleStringProperty(null);
+        Stanowisko = new SimpleStringProperty(null);
+        Kod = new SimpleStringProperty(null);
+        Nazwa = new SimpleStringProperty(null);
+        DataWyp = new SimpleStringProperty(dataWyp);
+        DataZwrotu = new SimpleStringProperty(null);
+        Cena = new SimpleDoubleProperty(0);
+    }
+
+    public wypozyczeniaData(int id_wypozyczenia,int id_pracownik, int id_narzedzia, String dataWyp, String dataZwrot){
+
+        Lp = new SimpleIntegerProperty(0);
+
+        Id_wypozyczenia = new SimpleIntegerProperty(id_wypozyczenia); // irrelevant DB will set it
+        Id_narzedzia = new SimpleIntegerProperty(id_narzedzia);
+        Id_pracownik = new SimpleIntegerProperty(id_pracownik);
+        Nazwisko = new SimpleStringProperty(null);
+        Imie = new SimpleStringProperty(null);
+        Stanowisko = new SimpleStringProperty(null);
+        Kod = new SimpleStringProperty(null);
+        Nazwa = new SimpleStringProperty(null);
+        DataWyp = new SimpleStringProperty(dataWyp);
+        DataZwrotu = new SimpleStringProperty(dataZwrot);
+        Cena = new SimpleDoubleProperty(0);
+    }
+
+    // Used to display data in the table
     public wypozyczeniaData(int id_wypozyczenia, int id_narzedzia, int id_pracownik,
                             String nazwisko, String imie, String stanowisko,
                             String kod, String nazwa,
