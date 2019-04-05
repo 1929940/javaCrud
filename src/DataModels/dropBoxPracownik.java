@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 public class dropBoxPracownik {
 
     public static ObservableList<dropBoxPracownik> containerList = FXCollections.observableArrayList();
+    public static ObservableList<dropBoxPracownik> containerListEmployeed = FXCollections.observableArrayList();
 
     private final int id;
     private final String nazwisko;

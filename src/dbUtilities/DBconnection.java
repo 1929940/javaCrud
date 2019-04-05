@@ -1,11 +1,11 @@
 package dbUtilities;
 
 import DataModels.*;
+import Main.helpers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
-;
 
 public class DBconnection {
 
@@ -131,10 +131,10 @@ public class DBconnection {
                     "VALUES ('Karczewski','Maciej','Polska','Koordynator','2015-09-01');";
             stmt.execute(sql);
             sql="INSERT INTO Pracownik(nazwisko, imie, narodowosc, stanowisko, data_zatr) " +
-                    "VALUES ('Demchuk','Vasyl','Ukraina','Spawacz','2014-12-01');";
+                    "VALUES ('Demchukov','Oleksandr','Ukraina','Spawacz','2014-12-01');";
             stmt.execute(sql);
             sql="INSERT INTO Pracownik(nazwisko, imie, narodowosc, stanowisko, data_zatr) " +
-                    "VALUES ('Khvalin','Oleksandr','Ukraina','Spawacz','2014-12-01');";
+                    "VALUES ('Khvalin','Vasyl','Ukraina','Spawacz','2014-12-01');";
             stmt.execute(sql);
             // my own
         } catch (SQLException e) {
@@ -199,7 +199,7 @@ public class DBconnection {
             System.err.println("Blad przy seedowaniu tabeli Narzedzia");
             e.printStackTrace();
         }
-    } // Untested
+    }
 
     public boolean IsSeedNarzedzia(){
         String sql = "SELECT COUNT(id_narzedzia) AS Count FROM Narzedzia";
@@ -222,7 +222,7 @@ public class DBconnection {
             return false;
         else
             return true;
-    } // Untested
+    }
 
     public void SeedWynagrodzenia(){
 
@@ -278,7 +278,7 @@ public class DBconnection {
             return false;
         else
             return true;
-    } // Untested
+    }
 
     public void SeedWypozyczenia(){
 
@@ -339,7 +339,7 @@ public class DBconnection {
             return false;
         else
             return true;
-    } // Untested
+    }
 
     // Pracownik
 
@@ -348,6 +348,7 @@ public class DBconnection {
         ObservableList<pracownikData> output = FXCollections.observableArrayList();
 
         dropBoxPracownik.containerList.clear();
+        dropBoxPracownik.containerListEmployeed.clear();
 
         int i = 1;
 
@@ -371,6 +372,9 @@ public class DBconnection {
                 pd.setLp(i++);
 
                 dropBoxPracownik.containerList.add(new dropBoxPracownik(id,nazwisko,imie));
+                if (data_wyp == null){
+                    dropBoxPracownik.containerListEmployeed.add(new dropBoxPracownik(id,nazwisko,imie));
+                }
 
                 output.add(pd);
             }
@@ -461,6 +465,8 @@ public class DBconnection {
 
     public void modyfikujPracownikaDB(pracownikData pd, pracownikData pdOld){
 
+        // This aproach is obsolete, lookup another table for how it is properly done
+        // Why is this even here? School projects have deadlines...
         int id_prac = znajdzPracownikaDB(pdOld);
 
         String sql = "UPDATE Pracownik " +
@@ -501,6 +507,7 @@ public class DBconnection {
         ObservableList<narzedziaData> output = FXCollections.observableArrayList();
 
         dropBoxNarzedzia.containerList.clear();
+        dropBoxNarzedzia.containerListAvaliable.clear();
 
         int i = 1;
 
@@ -525,6 +532,9 @@ public class DBconnection {
                 nd.setLp(i++);
 
                 dropBoxNarzedzia.containerList.add(new dropBoxNarzedzia(id_narzedzia, nazwa, kod));
+                if (data_utylizacji == null){
+                    dropBoxNarzedzia.containerListAvaliable.add(new dropBoxNarzedzia(id_narzedzia, nazwa, kod));
+                }
 
                 output.add(nd);
             }
@@ -614,12 +624,6 @@ public class DBconnection {
         //Find Data
 
         try {
-/*            String sql = "SELECT wy.*, pa.nazwisko, pa.imie, pa.stanowisko, na.kod, na.nazwa, na.cena"+
-            "FROM Wypozyczenia as wy"+
-            "INNER JOIN Pracownik as pa"+
-            "on pa.id_pracownik = wy.id_pracownik"+
-            "INNER JOIN Narzedzia as na"+
-            "on wy.id_narzedzia = na.id_narzedzia;";*/
 
             String sql = "SELECT wy.*, pa.nazwisko, pa.imie, pa.stanowisko, na.kod, na.nazwa, na.cena FROM Wypozyczenia as wy INNER JOIN Pracownik as pa on pa.id_pracownik = wy.id_pracownik INNER JOIN Narzedzia as na on wy.id_narzedzia = na.id_narzedzia;";
 
@@ -651,11 +655,32 @@ public class DBconnection {
                 wypozyczeniaData wd = new wypozyczeniaData(id_wypozyczenia,id_narzedzia,id_pracownik,nazwisko,imie,stanowisko,kod,nazwa,data_wyp,data_zwrot,cena);
                 wd.setLp(i++);
 
+                // wypozyczone
+                if(data_zwrot == null || data_wyp == null){
+                    dropBoxNarzedzia.NarzedziaWypozyczone.add(id_narzedzia);
+                }
+
+                // dostepne na stanie
+                if(data_zwrot != null){
+                    dropBoxNarzedzia.NarzedziaWypozyczone.remove(id_narzedzia);
+                }
+
                 output.add(wd);
             }
         } catch (SQLException e) {
             System.err.println("Blad przy wykonywaniu ladowaniu wypozyczenia");
             e.printStackTrace();
+        }
+        for (int value : dropBoxNarzedzia.NarzedziaWypozyczone){
+            int index = -1;
+            for(int j = 0; j < dropBoxNarzedzia.containerListAvaliable.size(); j++){
+                if (value == dropBoxNarzedzia.containerListAvaliable.get(j).getId_narzedzia()){
+                    index = j;
+                }
+            }
+            if (index > 0){
+                dropBoxNarzedzia.containerListAvaliable.remove(index);
+            }
         }
         return output;
     }
@@ -738,19 +763,14 @@ public class DBconnection {
     public ObservableList<wynagrodzenieData> getWynagrodzeniaDB(){
 
         ObservableList<wynagrodzenieData> output = FXCollections.observableArrayList();
+        helpers.ZbiorNrUmow.clear();
 
         int i = 1;
 
         //Find Data
 
         try {
-            String sql = "SELECT wyn.*, pa.nazwisko, pa.imie, pa.stanowisko FROM Wynagrodzenia as wyn INNER JOIN Pracownik as pa on pa.id_pracownik = wyn.id_pracownik;";
-
-/*            String sql = "SELECT wyn.*, pa.nazwisko, pa.imie, pa.stanowisko"+
-            "FROM Wynagrodzenia as wyn"+
-            "INNER JOIN Pracownik as pa"+
-            "on pa.id_pracownik = wyn.id_pracownik;";*/
-
+            String sql = "SELECT wyn.*, pa.nazwisko, pa.imie, pa.stanowisko, pa.data_wyp FROM Wynagrodzenia as wyn INNER JOIN Pracownik as pa on pa.id_pracownik = wyn.id_pracownik;";
 
             ResultSet result = stmt.executeQuery(sql);
 
@@ -774,12 +794,13 @@ public class DBconnection {
                 stawka = result.getDouble("stawka_godzinowa");
                 godziny = result.getDouble("godziny");
 
-
                 wyplata = result.getDouble("wyplata"); // BIGDECIMAL -> Is not supported by this driver
 
                 //Wyplata is being passed as Double, not Money/Decimal/BigDecimal
                 wynagrodzenieData wnd = new wynagrodzenieData(id_umowa,id_pracownik,nazwisko,imie,stanowisko,umowa,data_start,data_koniec,stawka, godziny, wyplata, przedmiot_umowy);
                 wnd.setLp(i++);
+
+                helpers.ZbiorNrUmow.add(umowa);
 
                 output.add(wnd);
             }
@@ -787,6 +808,7 @@ public class DBconnection {
             System.err.println("Blad przy wykonywaniu ladowaniu wynagrodzenia");
             e.printStackTrace();
         }
+
         return output;
     }
 

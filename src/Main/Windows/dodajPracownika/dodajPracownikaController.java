@@ -37,7 +37,8 @@ public class dodajPracownikaController implements Initializable {
         if (nazw.isEmpty() ||
                 imie.isEmpty() ||
                 narod.isEmpty() ||
-                stan.isEmpty()
+                stan.isEmpty() ||
+                dodajPrac_DataZatr.getValue() == null
         ){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Błąd: Nie wszystkie pola wypelnione");
@@ -48,6 +49,8 @@ public class dodajPracownikaController implements Initializable {
 
             return;
         }
+
+
         DBconnection dBconnection = new DBconnection();
         dBconnection.dodajPracownikaDB(new pracownikData(nazw,imie,narod,stan,date, null));
         dBconnection.closeConnection();

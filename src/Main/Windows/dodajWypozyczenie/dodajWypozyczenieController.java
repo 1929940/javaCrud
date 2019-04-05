@@ -86,11 +86,11 @@ public class dodajWypozyczenieController implements Initializable {
 
         dataWypDtp.setValue(LocalDate.now());
 
-        choiceBox_Narzedzie.setItems(dropBoxNarzedzia.containerList);
-        choiceBox_Narzedzie.setValue(dropBoxNarzedzia.containerList.get(0));
+        choiceBox_Narzedzie.setItems(dropBoxNarzedzia.containerListAvaliable);
+        choiceBox_Narzedzie.setValue(dropBoxNarzedzia.containerListAvaliable.get(0));
 
-        choiceBox_Pracownik.setItems(dropBoxPracownik.containerList);
-        choiceBox_Pracownik.setValue(dropBoxPracownik.containerList.get(0));
+        choiceBox_Pracownik.setItems(dropBoxPracownik.containerListEmployeed);
+        choiceBox_Pracownik.setValue(dropBoxPracownik.containerListEmployeed.get(0));
         }
 
 }

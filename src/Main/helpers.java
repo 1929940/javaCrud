@@ -1,6 +1,8 @@
 package Main;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class helpers {
 
@@ -27,4 +29,6 @@ public class helpers {
 
         return output;
     }
+
+    public static List<String> ZbiorNrUmow = new ArrayList<String>();
 }

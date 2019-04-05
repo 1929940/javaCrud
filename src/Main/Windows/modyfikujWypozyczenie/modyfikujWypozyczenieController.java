@@ -39,12 +39,12 @@ public class modyfikujWypozyczenieController implements Initializable {
         int id_wypozyczenia = wypozyczeniaData.container.getId_wypozyczenia();
 
 
-        if ((dataWypDtp.getValue() == null) || (dataZwrotDtp.getValue() == null)) {
+        if (dataWypDtp.getValue() == null) {
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Błąd: Pola Daty");
+            alert.setTitle("Błąd: Puste Pole Data Wypozyczenia");
             alert.setHeaderText(null);
-            alert.setContentText("Upewnij się że pola dat zostaly wybrane");
+            alert.setContentText("Upewnij się że pole Data Wypozyczenia jest uzupelnione");
 
             alert.showAndWait();
 
@@ -52,7 +52,12 @@ public class modyfikujWypozyczenieController implements Initializable {
         }
 
         String dataWyp = dataWypDtp.getValue().toString();
-        String dataZwrot = dataZwrotDtp.getValue().toString();
+        String dataZwrot = null;
+        if (dataZwrotDtp.getValue() != null) {
+            dataZwrot = dataZwrotDtp.getValue().toString();
+        }
+
+
 
         DBconnection dBconnection = new DBconnection();
 

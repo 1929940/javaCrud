@@ -1,5 +1,6 @@
 package DataModels;
 
+import Main.helpers;
 import javafx.beans.property.*;
 
 public class wynagrodzenieData {
@@ -37,7 +38,12 @@ public class wynagrodzenieData {
         DataKoniec = new SimpleStringProperty(dataKoniec);
         Stawka = new SimpleDoubleProperty(stawka);
         LiczbaGodzin = new SimpleDoubleProperty(liczbaGodzin);
-        Wyplata = new SimpleDoubleProperty(stawka * liczbaGodzin);
+
+        double tmpWyplata = stawka * liczbaGodzin;
+        String tmpWyplataStr = String.valueOf(tmpWyplata);
+        tmpWyplata = helpers.ConvertDouble(tmpWyplataStr);
+
+        Wyplata = new SimpleDoubleProperty(tmpWyplata);
         Przedmiot = new SimpleStringProperty(przedmiot);
     }
 

@@ -3,9 +3,15 @@ package DataModels;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class dropBoxNarzedzia {
 
     public static ObservableList<dropBoxNarzedzia> containerList = FXCollections.observableArrayList();
+    public static ObservableList<dropBoxNarzedzia> containerListAvaliable = FXCollections.observableArrayList();
+
+    public static Set<Integer> NarzedziaWypozyczone = new HashSet<Integer>();
 
     private final int id_narzedzia;
     private final String nazwa;

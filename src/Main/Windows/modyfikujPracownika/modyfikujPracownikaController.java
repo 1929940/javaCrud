@@ -15,6 +15,8 @@ import java.util.ResourceBundle;
 
 public class modyfikujPracownikaController implements Initializable {
 
+    //Lookup any different tab, this is a propotype, that I did not have the time to clean up.
+
     @FXML
     private Button anulujBtn;
 
@@ -34,17 +36,19 @@ public class modyfikujPracownikaController implements Initializable {
         String stanowisko = Stanowisko.getText();
 
         if (nazwisko.isEmpty() || imie.isEmpty() ||
-        narodowosc.isEmpty() || stanowisko.isEmpty()){
+        narodowosc.isEmpty() || stanowisko.isEmpty()
+        || DataZatr.getValue() == null){
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Błąd: Nie wszystkie pola wypelniono");
             alert.setHeaderText(null);
             alert.setContentText("Bład: Upewnij się że wymienione pola są wypełnione: \n" +
-                    "Nazwisko, Imie, Narodowosc, Stanowisko");
+                    "Nazwisko, Imie, Narodowosc, Stanowisko, Data Zatrudnienia");
             alert.showAndWait();
 
             return;
         }
+
         String dataZatr = DataZatr.getValue().toString();
 
         pracownikData tmp;
@@ -57,25 +61,11 @@ public class modyfikujPracownikaController implements Initializable {
             tmp = new pracownikData(nazwisko,imie,narodowosc,stanowisko,dataZatr,dataWyp);
         }
 
-        //Check if any changes where made
-
-        //Does not work - Will modify an unmodified object
-        if(tmp == container){
-            System.out.println("Nie wprowadzono zadnej modyfikacji");
-            return;
-        }
-
         DBconnection dBconnection = new DBconnection();
         dBconnection.modyfikujPracownikaDB(tmp, container);
         dBconnection.closeConnection();
 
-        //reset container [do i have too?]
-        container = null;
-
-        //close window
         anuluj();
-
-
     }
 
     public void anuluj(){

@@ -1,7 +1,6 @@
 package Main.Windows.dodajWynagrodzenie;
 
 import DataModels.dropBoxPracownik;
-import DataModels.narzedziaData;
 import DataModels.wynagrodzenieData;
 import Main.helpers;
 import dbUtilities.DBconnection;
@@ -126,8 +125,5 @@ public class dodajWynagrodzenieController implements Initializable {
 
         choiceBox.setItems(dropBoxPracownik.containerList);
         choiceBox.setValue(dropBoxPracownik.containerList.get(0));
-
-
-
     }
 }

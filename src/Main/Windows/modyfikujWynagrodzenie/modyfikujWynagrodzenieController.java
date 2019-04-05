@@ -81,11 +81,26 @@ public class modyfikujWynagrodzenieController implements Initializable {
             return;
         }
 
+        // Ensure's one cannot write an already in use Umowa Sygnature.
+
+        String toCompare = wynagrodzenieData.container.getUmowa().trim();
+        int areEqual = Umowa.compareToIgnoreCase(toCompare);
+
+        if(helpers.ZbiorNrUmow.contains(Umowa) && (areEqual != 0) ){
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Błąd: Zly numer umowy");
+            alert.setHeaderText(null);
+            alert.setContentText("Już istnieje umowa o takiej sygnaturze, wybierz inna");
+
+            alert.showAndWait();
+
+            return;
+        }
+
+
         String DateStart = startDtp.getValue().toString();
         String DateKoniec = koniecDtp.getValue().toString();
-
-        //(int id_pracownik, int id_umowa, String umowa, String dataStart, String dataKoniec,
-        // double stawka, double liczbaGodzin, double wyplata, String przedmiot)
 
         wynagrodzenieData tmp = new wynagrodzenieData(id_prac,id_umowa, Umowa, DateStart, DateKoniec, StawkaD, GodzinyD, WyplataD, Przedmiot);
 
@@ -94,7 +109,6 @@ public class modyfikujWynagrodzenieController implements Initializable {
         dBconnection.closeConnection();
 
         CloseWindow();
-
     }
 
     private void CloseWindow(){

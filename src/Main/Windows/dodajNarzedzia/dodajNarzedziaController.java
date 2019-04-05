@@ -58,12 +58,13 @@ public class dodajNarzedziaController implements Initializable {
 
         if (Nazwa.isEmpty() ||
                 Kod.isEmpty() ||
-                Cena.isEmpty()
+                Cena.isEmpty() ||
+                DateDtp.getValue() == null
         ){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Błąd: Nie wszystkie pola wypelnione");
+            alert.setTitle("Błąd: Wymagane Pola nie zostaly wypelnione");
             alert.setHeaderText(null);
-            alert.setContentText("Wypełnij wszystkie pola");
+            alert.setContentText("Uzupelnij Wymagane Pola: Nazwa, Kod, Cena, Data Zakupu");
 
             alert.showAndWait();
 

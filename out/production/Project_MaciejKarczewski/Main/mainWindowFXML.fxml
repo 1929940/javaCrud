@@ -242,7 +242,7 @@
             </GridPane>
          </content>
       </Tab>
-      <Tab text="Wypożyczone Narzędzia">
+      <Tab onSelectionChanged="#wypozyczenia_zaladuj" text="Wypożyczone Narzędzia">
          <content>
             <GridPane>
                <columnConstraints>
