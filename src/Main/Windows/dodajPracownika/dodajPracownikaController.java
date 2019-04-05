@@ -24,8 +24,6 @@ public class dodajPracownikaController implements Initializable {
     @FXML
     private DatePicker dodajPrac_DataZatr;
 
-
-
     public void dodaj(ActionEvent event){
 
         String nazw = dodajPrac_Nazwisko.getText();
@@ -49,7 +47,6 @@ public class dodajPracownikaController implements Initializable {
 
             return;
         }
-
 
         DBconnection dBconnection = new DBconnection();
         dBconnection.dodajPracownikaDB(new pracownikData(nazw,imie,narod,stan,date, null));

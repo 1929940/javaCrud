@@ -194,7 +194,6 @@ public class DBconnection {
             stmt.execute(sql);
 
 
-            // my own
         } catch (SQLException e) {
             System.err.println("Blad przy seedowaniu tabeli Narzedzia");
             e.printStackTrace();
@@ -250,7 +249,6 @@ public class DBconnection {
                     "VALUES(3, '2015/01/03', '2015-01-03','2015-01-27',25,190,4750,'Spawanie wregow nr 11 do 23 na jednostce NB212/2');";
             stmt.execute(sql);
 
-            // my own
         } catch (SQLException e) {
             System.err.println("Blad przy seedowaniu tabeli Pracownik");
             e.printStackTrace();
@@ -310,7 +308,6 @@ public class DBconnection {
             stmt.execute(sql);
 
 
-            // my own
         } catch (SQLException e) {
             System.err.println("Blad przy seedowaniu tabeli Narzedzia");
             e.printStackTrace();
@@ -387,8 +384,6 @@ public class DBconnection {
 
     public void dodajPracownikaDB(pracownikData pd){
 
-        // Add
-
         String sql="INSERT INTO Pracownik(nazwisko, imie, narodowosc, stanowisko, data_zatr) " +
                 "VALUES (?, ?, ?, ?, ?);";
         try {
@@ -403,13 +398,10 @@ public class DBconnection {
 
             stmtAdd.execute();
 
-            // my own
         } catch (SQLException e) {
             System.err.println("Blad przy dodawaniu pracownika");
             e.printStackTrace();
         }
-
-        // Close
     }
 
     public int znajdzPracownikaDB(pracownikData pd){
@@ -422,7 +414,6 @@ public class DBconnection {
                 "narodowosc = ? AND " +
                 "stanowisko = ? AND " +
                 "data_zatr = ?)";
-                //no data wyp as of yet
 
         try {
             PreparedStatement stmtAdd = conn.prepareStatement(sql);
@@ -431,7 +422,6 @@ public class DBconnection {
             stmtAdd.setString(2,pd.getImie());
             stmtAdd.setString(3,pd.getNarodowosc());
             stmtAdd.setString(4,pd.getStanowisko());
-            //This might be troublesome
             stmtAdd.setString(5,pd.getDataZatr());
 
             ResultSet result = stmtAdd.executeQuery();
@@ -449,7 +439,6 @@ public class DBconnection {
 
         String sql="DELETE FROM Pracownik WHERE id_pracownik = ?";
 
-        // Delete
        try {
             PreparedStatement stmtAdd = conn.prepareStatement(sql);
 
@@ -525,9 +514,8 @@ public class DBconnection {
                 kod = result.getString("kod");
                 data_zakupu = result.getString("data_zakupu");
                 data_utylizacji = result.getString("data_utylizacji");
-                cena = result.getDouble("cena"); // DECIMAL -> BIGDECIMAL
+                cena = result.getDouble("cena");
 
-                //Cena is being passed as Double, not Money/Decimal/BigDecimal
                 narzedziaData nd = new narzedziaData(id_narzedzia, kod, nazwa, data_zakupu, data_utylizacji, cena);
                 nd.setLp(i++);
 
@@ -535,7 +523,6 @@ public class DBconnection {
                 if (data_utylizacji == null){
                     dropBoxNarzedzia.containerListAvaliable.add(new dropBoxNarzedzia(id_narzedzia, nazwa, kod));
                 }
-
                 output.add(nd);
             }
         } catch (SQLException e) {
@@ -546,8 +533,6 @@ public class DBconnection {
     }
 
     public void dodajNarzedzieDB(narzedziaData nd){
-
-        // Add
 
         String sql="INSERT INTO Narzedzia(nazwa, kod, data_zakupu, data_utylizacji, cena) " +
                 "VALUES (?, ?, ?, ?, ?);";
@@ -562,20 +547,16 @@ public class DBconnection {
 
             stmtAdd.execute();
 
-            // my own
         } catch (SQLException e) {
             System.err.println("Blad przy dodawaniu Narzedzia");
             e.printStackTrace();
         }
-
-        // Close
     }
 
     public void usunNarzedzieDB(int id_prac){
 
         String sql="DELETE FROM Narzedzia WHERE id_narzedzia = ?";
 
-        // Delete
         try {
             PreparedStatement stmtAdd = conn.prepareStatement(sql);
 
@@ -591,7 +572,6 @@ public class DBconnection {
 
     public void modyfikujNarzedzieDB(narzedziaData nd){
 
-
         String sql = "UPDATE Narzedzia SET nazwa = ?, kod = ?, data_zakupu = ?, data_utylizacji = ?, cena = ? WHERE id_narzedzia = ?";
 
         try {
@@ -606,7 +586,6 @@ public class DBconnection {
 
             stmtAdd.execute();
 
-            // my own
         } catch (SQLException e) {
             System.err.println("Blad przy [edytowaniu] narzedzia");
             e.printStackTrace();
@@ -620,8 +599,6 @@ public class DBconnection {
         ObservableList<wypozyczeniaData> output = FXCollections.observableArrayList();
 
         int i = 1;
-
-        //Find Data
 
         try {
 
@@ -651,20 +628,16 @@ public class DBconnection {
 
                 cena = result.getDouble("cena"); // DECIMAL -> BIGDECIMAL
 
-                //Cena is being passed as Double, not Money/Decimal/BigDecimal
                 wypozyczeniaData wd = new wypozyczeniaData(id_wypozyczenia,id_narzedzia,id_pracownik,nazwisko,imie,stanowisko,kod,nazwa,data_wyp,data_zwrot,cena);
                 wd.setLp(i++);
 
-                // wypozyczone
                 if(data_zwrot == null || data_wyp == null){
                     dropBoxNarzedzia.NarzedziaWypozyczone.add(id_narzedzia);
                 }
 
-                // dostepne na stanie
                 if(data_zwrot != null){
                     dropBoxNarzedzia.NarzedziaWypozyczone.remove(id_narzedzia);
                 }
-
                 output.add(wd);
             }
         } catch (SQLException e) {
@@ -687,8 +660,6 @@ public class DBconnection {
 
     public void dodajWypozyczenieDB(wypozyczeniaData wd){
 
-        // Add
-
         String sql="INSERT INTO Wypozyczenia(id_narzedzia, id_pracownik, data_wyp, data_zwrot) " +
                 "VALUES (?, ?, ?, ?);";
         try {
@@ -701,20 +672,16 @@ public class DBconnection {
 
             stmtAdd.execute();
 
-            // my own
         } catch (SQLException e) {
             System.err.println("Blad przy dodawaniu Wypozyczenia");
             e.printStackTrace();
         }
-
-        // Close
     }
 
     public void usunWypozyczenieDB(int id_prac){
 
         String sql="DELETE FROM Wypozyczenia WHERE id_wypozyczenia = ?";
 
-        // Delete
         try {
             PreparedStatement stmtAdd = conn.prepareStatement(sql);
 
@@ -729,7 +696,6 @@ public class DBconnection {
     }
 
     public void modyfikujWypozyczenieDB(wypozyczeniaData wd){
-
 
         String sql = "UPDATE Wypozyczenia " +
                 "SET id_narzedzia = ?," +
@@ -747,10 +713,8 @@ public class DBconnection {
             stmtAdd.setString(4,wd.getDataZwrotu());
             stmtAdd.setInt(5,wd.getId_wypozyczenia());
 
-
             stmtAdd.execute();
 
-            // my own
         } catch (SQLException e) {
             System.err.println("Blad przy [edytowaniu] wypozyczenia");
             e.printStackTrace();
@@ -766,8 +730,6 @@ public class DBconnection {
         helpers.ZbiorNrUmow.clear();
 
         int i = 1;
-
-        //Find Data
 
         try {
             String sql = "SELECT wyn.*, pa.nazwisko, pa.imie, pa.stanowisko, pa.data_wyp FROM Wynagrodzenia as wyn INNER JOIN Pracownik as pa on pa.id_pracownik = wyn.id_pracownik;";
@@ -794,9 +756,8 @@ public class DBconnection {
                 stawka = result.getDouble("stawka_godzinowa");
                 godziny = result.getDouble("godziny");
 
-                wyplata = result.getDouble("wyplata"); // BIGDECIMAL -> Is not supported by this driver
+                wyplata = result.getDouble("wyplata"); // BIGDECIMAL -> Is not supported by this driver -> I am not risking it
 
-                //Wyplata is being passed as Double, not Money/Decimal/BigDecimal
                 wynagrodzenieData wnd = new wynagrodzenieData(id_umowa,id_pracownik,nazwisko,imie,stanowisko,umowa,data_start,data_koniec,stawka, godziny, wyplata, przedmiot_umowy);
                 wnd.setLp(i++);
 
@@ -814,8 +775,6 @@ public class DBconnection {
 
     public void dodajWynagrodzenieDB(wynagrodzenieData wd){
 
-        // Add
-
         String sql="INSERT INTO Wynagrodzenia(id_pracownik, umowa, data_start, data_koniec, stawka_godzinowa, godziny, wyplata, przedmiot_umowy) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
         try {
@@ -832,7 +791,6 @@ public class DBconnection {
 
             stmtAdd.execute();
 
-            // my own
         } catch (SQLException e) {
             System.err.println("Blad przy dodawaniu Wynagrodzenia");
             e.printStackTrace();
@@ -843,7 +801,6 @@ public class DBconnection {
 
         String sql="DELETE FROM Wynagrodzenia WHERE id_umowa = ?";
 
-        // Delete
         try {
             PreparedStatement stmtAdd = conn.prepareStatement(sql);
 
@@ -858,7 +815,6 @@ public class DBconnection {
     }
 
     public void modyfikujWynagrodzenieDB(wynagrodzenieData wd){
-
 
         String sql = "UPDATE Wynagrodzenia " +
                 "SET id_pracownik = ?," +
@@ -884,10 +840,8 @@ public class DBconnection {
             stmtAdd.setString(8,wd.getPrzedmiot());
             stmtAdd.setInt(9,wd.getId_umowa());
 
-
             stmtAdd.execute();
 
-            // my own
         } catch (SQLException e) {
             System.err.println("Blad przy [edytowaniu] wynagrodzenia");
             e.printStackTrace();
@@ -933,6 +887,5 @@ public class DBconnection {
             e.printStackTrace();
         }
     }
-
 }
 

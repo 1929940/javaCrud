@@ -15,18 +15,6 @@ public class narzedziaData {
     private final StringProperty DataUtyl;
     private final DoubleProperty Cena;
 
-    public narzedziaData(int id, String kod, String nazwa, String dataZak, double cena) {
-
-        Lp = new SimpleIntegerProperty(0);
-        Id_Narzedzie = new SimpleIntegerProperty(id);
-        Kod = new SimpleStringProperty(kod);
-        Nazwa = new SimpleStringProperty(nazwa);
-        DataZak = new SimpleStringProperty(dataZak);
-        DataUtyl = new SimpleStringProperty(null); // can this accept null?
-        Cena = new SimpleDoubleProperty(cena);
-
-    }
-
     public narzedziaData(int id, String kod, String nazwa, String dataZak, String dataUtyl, double cena) {
 
         Lp = new SimpleIntegerProperty(0);

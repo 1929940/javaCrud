@@ -84,8 +84,6 @@ public class dodajNarzedziaController implements Initializable {
             return;
         }
 
-
-
         DBconnection dBconnection = new DBconnection();
         dBconnection.dodajNarzedzieDB(new narzedziaData(0, Kod, Nazwa, Date, null, cenaTmp));
         dBconnection.closeConnection();

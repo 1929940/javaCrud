@@ -34,8 +34,4 @@ public class dropBoxPracownik {
     public String getImie() {
         return imie;
     }
-
-    // stores id, name, surname
-    // override tostring to display surname + name
-    // some method that returns just id
 }

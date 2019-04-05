@@ -40,7 +40,4 @@ public class dropBoxNarzedzia {
         return kod;
     }
 
-    //stores: id_narzedzia, nazwa, kod
-    //displays: nazwa, kod
-    //returns: id_narzedzia
 }

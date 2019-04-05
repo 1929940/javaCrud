@@ -4,8 +4,6 @@ import DataModels.narzedziaData;
 import DataModels.pracownikData;
 import DataModels.wynagrodzenieData;
 import DataModels.wypozyczeniaData;
-import Main.Windows.dodajPracownika.dodajPracownikaController;
-import Main.Windows.modyfikujPracownika.modyfikujPracownikaController;
 import dbUtilities.DBconnection;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -85,8 +83,6 @@ public class Controller implements Initializable {
         catch (IOException e){
             e.printStackTrace();
         }
-
-
     }
 
     public void pracownicy_zaladuj(){
@@ -119,7 +115,6 @@ public class Controller implements Initializable {
                 alert.setContentText("Bład: Wybierz wiersz, potem ponownie kliknij na przycisk modyfikuj");
                 alert.showAndWait();
 
-
                 return;
             }
 
@@ -137,13 +132,7 @@ public class Controller implements Initializable {
             popUp.initStyle(StageStyle.UTILITY);
             popUp.initModality(Modality.APPLICATION_MODAL);
 
-
-
-
-
             popUp.show();
-
-
 
             popUp.setOnCloseRequest(new EventHandler<WindowEvent>(){
                 @Override
@@ -155,9 +144,6 @@ public class Controller implements Initializable {
         catch (IOException e){
             e.printStackTrace();
         }
-
-
-
     }
 
     public void pracownicy_usun_click(){
@@ -192,7 +178,6 @@ public class Controller implements Initializable {
             wynagrodzenie_zaladuj();
             wypozyczenia_zaladuj();
         }
-
     }
 
 
@@ -278,7 +263,6 @@ public class Controller implements Initializable {
 
         if (alert.getResult() == ButtonType.YES) {
 
-
             DBconnection dBconnection = new DBconnection();
             dBconnection.usunWynagrodzenieDB(selectedData.get(0).getId_umowa());
             dBconnection.closeConnection();
@@ -295,7 +279,6 @@ public class Controller implements Initializable {
 
             FXMLLoader loader = new FXMLLoader();
             Parent gui = loader.load(getClass().getResource("/Main/Windows/dodajWynagrodzenie/dodajWynagrodzenieFXML.fxml"));
-
 
             Scene scene = new Scene(gui);
 
@@ -316,8 +299,6 @@ public class Controller implements Initializable {
         catch (IOException e){
             e.printStackTrace();
         }
-
-
     }
 
     public void wynagrodzenie_modyfikuj_click(ActionEvent event){
@@ -334,7 +315,6 @@ public class Controller implements Initializable {
                 alert.setHeaderText(null);
                 alert.setContentText("Bład: Wybierz wiersz, potem ponownie kliknij na przycisk modyfikuj");
                 alert.showAndWait();
-
 
                 return;
             }
@@ -355,8 +335,6 @@ public class Controller implements Initializable {
 
             popUp.show();
 
-
-
             popUp.setOnCloseRequest(new EventHandler<WindowEvent>(){
                 @Override
                 public void handle(WindowEvent paramT){
@@ -367,9 +345,6 @@ public class Controller implements Initializable {
         catch (IOException e){
             e.printStackTrace();
         }
-
-
-
     }
 
     // TAB: Spis Narzedzi
@@ -435,7 +410,6 @@ public class Controller implements Initializable {
 
         if (alert.getResult() == ButtonType.YES) {
 
-
             DBconnection dBconnection = new DBconnection();
             dBconnection.usunNarzedzieDB(selectedData.get(0).getId_Narzedzie());
             dBconnection.closeConnection();
@@ -443,7 +417,6 @@ public class Controller implements Initializable {
             narzedzia_zaladuj();
             wypozyczenia_zaladuj();
         }
-
     }
 
     public void narzedzia_dodaj_click(ActionEvent event){
@@ -491,7 +464,6 @@ public class Controller implements Initializable {
                 alert.setHeaderText(null);
                 alert.setContentText("Bład: Wybierz wiersz, potem ponownie kliknij na przycisk modyfikuj");
                 alert.showAndWait();
-
 
                 return;
             }
@@ -601,14 +573,12 @@ public class Controller implements Initializable {
 
         if (alert.getResult() == ButtonType.YES) {
 
-
             DBconnection dBconnection = new DBconnection();
             dBconnection.usunWypozyczenieDB(selectedData.get(0).getId_wypozyczenia());
             dBconnection.closeConnection();
 
             wypozyczenia_zaladuj();
         }
-
     }
 
     public void wypozyczenia_dodaj_click(ActionEvent event){
@@ -638,8 +608,6 @@ public class Controller implements Initializable {
         catch (IOException e){
             e.printStackTrace();
         }
-
-
     }
 
     public void wypozyczenia_modyfikuj_click(ActionEvent event){
@@ -656,7 +624,6 @@ public class Controller implements Initializable {
                 alert.setHeaderText(null);
                 alert.setContentText("Bład: Wybierz wiersz, potem ponownie kliknij na przycisk modyfikuj");
                 alert.showAndWait();
-
 
                 return;
             }
@@ -694,7 +661,6 @@ public class Controller implements Initializable {
 
     // Other
 
-    // Perhaps unnessesary
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

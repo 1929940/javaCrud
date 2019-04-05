@@ -67,28 +67,6 @@ public class wynagrodzenieData {
         Przedmiot = new SimpleStringProperty(przedmiot);
     }
 
-
-    // Use for creating new objects
-    // Is this ever used?
-    public wynagrodzenieData(int id_umowa, int id_pracownik, String nazwisko, String imie, String stanowisko, String umowa, String dataStart, double stawka, double liczbaGodzin, String przedmiot) {
-
-        Lp = new SimpleIntegerProperty(0);
-
-        Id_umowa = new SimpleIntegerProperty(id_umowa);
-        Id_pracownik = new SimpleIntegerProperty(id_pracownik);
-
-        Nazwisko = new SimpleStringProperty(nazwisko);
-        Imie = new SimpleStringProperty(imie);
-        Stanowisko = new SimpleStringProperty(stanowisko);
-        Umowa = new SimpleStringProperty(umowa);
-        DataStart = new SimpleStringProperty(dataStart);
-        DataKoniec = new SimpleStringProperty("");
-        Stawka = new SimpleDoubleProperty(stawka);
-        LiczbaGodzin = new SimpleDoubleProperty(liczbaGodzin);
-        Wyplata = new SimpleDoubleProperty(stawka * liczbaGodzin);
-        Przedmiot = new SimpleStringProperty(przedmiot);
-    }
-
     //Use for displaying or modifying
     public wynagrodzenieData(int id_umowa, int id_pracownik, String nazwisko, String imie, String stanowisko, String umowa, String dataStart, String dataKoniec, double stawka, double liczbaGodzin, double wyplata, String przedmiot) {
 

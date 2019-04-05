@@ -9,8 +9,6 @@ public class pracownikData {
 
     public static pracownikData containerPracownik;
 
-
-
     private IntegerProperty Lp;
     private final StringProperty Nazwisko;
     private final StringProperty Imie;
@@ -52,10 +50,6 @@ public class pracownikData {
 
         return output;
     }
-
-
-
-    // Why we have 3?
 
     public Integer getLp() {
         return Lp.get();
